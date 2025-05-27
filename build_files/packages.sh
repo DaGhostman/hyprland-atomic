@@ -29,3 +29,20 @@ if [[ "${#EXCLUDED_PACKAGES[@]}" -gt 0 ]]; then
 else
     echo "No packages to remove."
 fi
+
+
+readarray -t SWAPPED_PACKAGES < <(jq -r "[(.all.swap | (.all, select(.\"$IMAGE_NAME\" != null).\"$IMAGE_NAME\")), \
+                             (select(.\"$FEDORA_MAJOR_VERSION\" != null).\"$FEDORA_MAJOR_VERSION\".swap | (.all, select(.\"$IMAGE_NAME\" != null).\"$IMAGE_NAME\"))] \
+                             | to_entries[] | .value | to_entries[] | \"\(.key) \(.value)\"" /ctx/packages.json)
+
+# Swap Packages
+if [[ "${#SWAPPED_PACKAGES[@]}" -gt 0 ]]; then
+    dnf5 -y swap \
+        ${SWAPPED_PACKAGES[@]}
+else
+    echo "No packages to install."
+
+fi
+
+
+# jq -r "[(.all.swap | (.all, select(.\"$IMAGE_NAME\" != null).\"$IMAGE_NAME\")), (select(.\"$FEDORA_MAJOR_VERSION\" != null).\"$FEDORA_MAJOR_VERSION\".swap | (.all, select(.\"$IMAGE_NAME\" != null).\"$IMAGE_NAME\"))] to_entries[] | .value | to_entries[] | \"(.key) (.value)\"" /ctx/packages.json
