@@ -2,11 +2,6 @@
     "all": {
         "include": {
             "all": [
-                "greetd",
-                "neovim",
-                "tuigreet"
-            ],
-            "full": [
                 "alsa-firmware",
                 "btop",
                 "coolercontrol",
@@ -18,7 +13,6 @@
                 "flatpak",
                 "flatpak-spawn",
                 "fzf",
-                "ghostty",
                 "greetd",
                 "heif-pixbuf-loader",
                 "hyprdim",
@@ -48,12 +42,12 @@
             ]
         },
         "exclude": {
-            "all": [
-                "kitty",
-                "kitty-kitten",
-                "kitty-terminfo",
-                "kitty-shell-integration"
-            ]
+            "all": []
+        },
+        "swap": {
+            "all": {
+                "kitty": "ghostty"
+            }
         }
     }
 }
