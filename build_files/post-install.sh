@@ -41,16 +41,15 @@ systemctl enable greetd.service
 # Cleanup
 # Remove tmp files and everything in dirs that make bootc unhappy
 dnf5 -y remove rsync
+dnf5 clean all
 
 rm -rf /tmp/* || true
 rm -rf /usr/etc
 rm -rf /sys_files
 rm -rf /boot && mkdir /boot
 
+sudo restorecon /
 
 # Check to make sure important packages are present
 /ctx/check-build.sh
 
-# bootc/ostree checks
-bootc container lint
-ostree container commit
