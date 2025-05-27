@@ -1,8 +1,7 @@
 [terminal]
 vt = 1
 
-[default-session]
-# command = "tuigreet --cmd uwsm start hyprland.desktop"
-command = "zsh"
+[default_session]
+command = "tuigreet --cmd Hyprland"
 
-user = "greeter"
+user = "greetd"
