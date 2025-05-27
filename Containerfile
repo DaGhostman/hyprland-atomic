@@ -28,7 +28,7 @@ ARG FEDORA_MAJOR_VERSION="${FEDORA_MAJOR_VERSION}"
 RUN dnf5 -y install rsync
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
-    # --mount=type=tmpfs,dst=/var/log \
+    --mount=type=tmpfs,dst=/var/log \
     --mount=type=tmpfs,dst=/tmp \
     dnf5 -y install rsync && \
     /ctx/build.sh && \
@@ -36,7 +36,6 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     /ctx/configure.sh && \
     /ctx/initramfs.sh && \
     /ctx/post-install.sh && \
-    dnf5 -y remove rsync && \
     ostree container commit
     
 ### LINTING
