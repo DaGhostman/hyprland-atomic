@@ -1,9 +1,16 @@
 # Allow build scripts to be referenced without being copied into the final image
 FROM scratch AS ctx
 COPY build_files /
+COPY sys_files /sys_files
+COPY packages.json /
 
 # Base Image
-FROM ghcr.io/ublue-os/bazzite:stable
+# FROM ghcr.io/ublue-os/bazzite:stable
+FROM quay.io/fedora/fedora-bootc:42
+
+ARG IMAGE_NAME="${IMAGE_NAME:-base}"
+ARG FEDORA_MAJOR_VERSION="${FEDORA_MAJOR_VERSION}"
+# ARG SOURCE_IMAGE="${SOURCE_IMAGE=:-base}"
 
 ## Other possible base images include:
 # FROM ghcr.io/ublue-os/bazzite:latest
@@ -18,11 +25,18 @@ FROM ghcr.io/ublue-os/bazzite:stable
 ## make modifications desired in your image and install packages by modifying the build.sh script
 ## the following RUN directive does all the things required to run "build.sh" as recommended.
 
+RUN dnf5 -y install rsync
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
-    --mount=type=cache,dst=/var/log \
+    # --mount=type=tmpfs,dst=/var/log \
     --mount=type=tmpfs,dst=/tmp \
+    dnf5 -y install rsync && \
     /ctx/build.sh && \
+    /ctx/packages.sh && \
+    /ctx/configure.sh && \
+    /ctx/initramfs.sh && \
+    /ctx/post-install.sh && \
+    dnf5 -y remove rsync && \
     ostree container commit
     
 ### LINTING

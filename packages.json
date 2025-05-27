@@ -1,0 +1,59 @@
+{
+    "all": {
+        "include": {
+            "all": [
+                "greetd",
+                "neovim",
+                "tuigreet"
+            ],
+            "full": [
+                "alsa-firmware",
+                "btop",
+                "coolercontrol",
+                "coolercontrold",
+                "cliphist",
+                "easyeffects",
+                "fastfetch",
+                "ffmpeg-free",
+                "flatpak",
+                "flatpak-spawn",
+                "fzf",
+                "ghostty",
+                "greetd",
+                "heif-pixbuf-loader",
+                "hyprdim",
+                "hypridle",
+                "hyprland",
+                "hyprland-autoname-workspaces",
+                "hyprland-contrib",
+                "hyprland-plugins",
+                "hyprpolkitagent",
+                "hyprsunset",
+                "just",
+                "lact",
+                "mozilla-openh264",
+                "nautilus",
+                "noopenh264",
+                "neovim",
+                "openh264",
+                "solaar-udev",
+                "steam-devices",
+                "swww",
+                "tuigreet",
+                "waybar-git",
+                "wl-clipboard",
+                "wlogout",
+                "xdg-desktop-portal-hyprland",
+                "zsh"
+            ]
+        },
+        "exclude": {
+            "all": [
+                "kitty",
+                "kitty-kitten",
+                "kitty-terminfo",
+                "kitty-shell-integration"
+            ]
+        }
+    }
+}

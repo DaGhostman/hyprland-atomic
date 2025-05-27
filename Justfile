@@ -1,7 +1,7 @@
-export repo_organization := env("GITHUB_REPOSITORY_OWNER", "yourname")
-export image_name := env("IMAGE_NAME", "yourimage")
+export repo_organization := env("GITHUB_REPOSITORY_OWNER", "Dimitar Dimitrov")
+export image_name := env("IMAGE_NAME", "hyperland-atomic")
 export centos_version := env("CENTOS_VERSION", "stream10")
-export fedora_version := env("CENTOS_VERSION", "41")
+export fedora_version := env("FEDORA_VERSION", "42")
 export default_tag := env("DEFAULT_TAG", "latest")
 export bib_image := env("BIB_IMAGE", "quay.io/centos-bootc/bootc-image-builder:latest")
 
@@ -110,6 +110,7 @@ build $target_image=image_name $tag=default_tag $dx="0" $hwe="0" $gdx="0":
 
     BUILD_ARGS=()
     BUILD_ARGS+=("--build-arg" "MAJOR_VERSION=${centos_version}")
+    BUILD_ARGS+=("--build-arg" "FEDORA_MAJOR_VERSION=${fedora_version}")
     BUILD_ARGS+=("--build-arg" "IMAGE_NAME=${target_image}")
     BUILD_ARGS+=("--build-arg" "IMAGE_VENDOR=${repo_organization}")
     BUILD_ARGS+=("--build-arg" "ENABLE_DX=${dx}")
@@ -322,7 +323,6 @@ spawn-vm rebuild="0" type="qcow2" ram="6G":
       --vsock=false --pass-ssh-key=false \
       -i ./output/**/*.{{ type }}
 
-
 # Runs shell check on all Bash scripts
 lint:
     #!/usr/bin/env bash
@@ -337,7 +337,7 @@ lint:
 
 # Runs shfmt on all Bash scripts
 format:
-     #!/usr/bin/env bash
+    #!/usr/bin/env bash
     set -eoux pipefail
     # Check if shfmt is installed
     if ! command -v shfmt &> /dev/null; then
