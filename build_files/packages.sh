@@ -37,12 +37,10 @@ readarray -t SWAPPED_PACKAGES < <(jq -r "[(.all.swap | (.all, select(.\"$IMAGE_N
 
 # Swap Packages
 if [[ "${#SWAPPED_PACKAGES[@]}" -gt 0 ]]; then
-    for ((i=0; i<${#SWAPPED_PACKAGES[@]}; i+=2)); do
-        target="${SWAPPED_PACKAGES[i]}"
-        replacement="${SWAPPED_PACKAGES[i+1]}"
+    for ((i=0; i<${#SWAPPED_PACKAGES[@]}; i++)); do
+        packages="${SWAPPED_PACKAGES[i]}"
 
-        dnf5 -y swap \
-            "${target}" "${replacement}"
+        dnf5 -y swap ${packages}
     done
 
 else
