@@ -47,7 +47,6 @@
                 "nautilus",
                 "neovim",
                 "openh264",
-                "pauvcontrol",
                 "podman-compose",
                 "power-profiles-daemon",
                 "solaar",
@@ -57,7 +56,6 @@
                 "swww",
                 "tuigreet",
                 "tuned",
-                "tuned-ppd",
                 "tuned-profiles-atomic",
                 "waybar-git",
                 "wl-clipboard",
@@ -83,7 +81,8 @@
         },
         "swap": {
             "all": {
-                "kitty": "ghostty"
+                "kitty": "ghostty",
+                "power-profiles-daemon": "tuned-ppd"
             }
         }
     }
