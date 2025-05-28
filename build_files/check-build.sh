@@ -13,7 +13,7 @@ IMPORTANT_PACKAGES=(
     waybar-git
     ghostty
     btop
-    nvim
+    neovim
 )
 
 for package in "${IMPORTANT_PACKAGES[@]}"; do
