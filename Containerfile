@@ -3,6 +3,7 @@ FROM scratch AS ctx
 COPY build_files /
 COPY sys_files /sys_files
 COPY packages.json /
+COPY flatpak.json /
 
 # Base Image
 # FROM ghcr.io/ublue-os/bazzite:stable
@@ -32,6 +33,7 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     dnf5 -y install rsync && \
     /ctx/build.sh && \
     /ctx/packages.sh && \
+    /ctx/flatpak.sh && \
     /ctx/configure.sh && \
     /ctx/initramfs.sh && \
     /ctx/post-install.sh && \
