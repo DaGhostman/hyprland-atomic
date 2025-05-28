@@ -17,8 +17,8 @@ dnf5 versionlock clear
 
 # Enable Update Timers
 systemctl enable rpm-ostreed-automatic.timer
-systemctl enable flatpak-system-update.timer
-systemctl --global enable flatpak-user-update.timer
+# systemctl enable flatpak-system-update.timer
+# systemctl --global enable flatpak-user-update.timer
 systemctl enable dbus.service
 systemctl set-default graphical.target
 systemctl enable podman.socket
