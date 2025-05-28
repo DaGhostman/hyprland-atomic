@@ -6,9 +6,14 @@ source /etc/os-release
 
 IMPORTANT_PACKAGES=(
     systemd
-    # pipewire
-    # wireplumber
-    # hyprland
+    pipewire
+    wireplumber
+    hyprland
+    uwsm
+    waybar
+    ghostty
+    btop
+    nvim
 )
 
 for package in "${IMPORTANT_PACKAGES[@]}"; do
