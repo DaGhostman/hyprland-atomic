@@ -37,10 +37,16 @@ readarray -t SWAPPED_PACKAGES < <(jq -r "[(.all.swap | (.all, select(.\"$IMAGE_N
 
 # Swap Packages
 if [[ "${#SWAPPED_PACKAGES[@]}" -gt 0 ]]; then
-    dnf5 -y swap \
-        ${SWAPPED_PACKAGES[@]}
+    for ((i=0; i<${#SWAPPED_PACKAGES[@]}; i+=2)); do
+        target="${SWAPPED_PACKAGES[i]}"
+        replacement="${SWAPPED_PACKAGES[i+1]}"
+
+        dnf5 -y swap \
+            "${target}" "${replacement}"
+    done
+
 else
-    echo "No packages to install."
+    echo "No packages to swap."
 
 fi
 
