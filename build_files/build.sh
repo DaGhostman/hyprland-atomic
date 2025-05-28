@@ -19,9 +19,3 @@ dnf5 -y copr enable pgdev/ghostty
 dnf5 -y copr enable codifryed/CoolerControl
 dnf5 -y copr enable ilyaz/LACT
 
-# Enable FlatHub remote for flatpaks
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-
-# Install Brew
-$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)
-
