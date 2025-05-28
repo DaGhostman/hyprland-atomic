@@ -43,7 +43,6 @@
                 "lact",
                 "libva-utils",
                 "lm_sensors",
-                "mesa-va-drivers-freeworld",
                 "mesa-vdpau-drivers-freeworld",
                 "mesa-vulkan-drivers-freeworld",
                 "mozilla-openh264",
@@ -86,7 +85,8 @@
         "swap": {
             "all": {
                 "kitty": "ghostty",
-                "power-profiles-daemon": "tuned-ppd"
+                "power-profiles-daemon": "tuned-ppd",
+                "mesa-va-drivers": "mesa-va-drivers-freeworld"
             }
         }
     }
