@@ -42,7 +42,9 @@
             ]
         },
         "exclude": {
-            "all": []
+            "all": [
+                "usbmuxd"
+            ]
         },
         "swap": {
             "all": {
