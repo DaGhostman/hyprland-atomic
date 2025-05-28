@@ -7,6 +7,8 @@ if [[ "$IMAGE_NAME" == "base" ]]; then
     systemctl enable getty@tty1
 fi
 
+dnf5 -y remove rsync
+
 # Workaround: Rename just's CN readme to README.zh-cn.md 
 # mv '/usr/share/doc/just/README.中文.md' '/usr/share/doc/just/README.zh-cn.md'
 
@@ -48,7 +50,7 @@ rm -rf /usr/etc
 rm -rf /sys_files
 rm -rf /boot && mkdir /boot
 
-sudo restorecon /
+# sudo restorecon /
 
 # Check to make sure important packages are present
 /ctx/check-build.sh

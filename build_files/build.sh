@@ -13,7 +13,7 @@ set -ouex pipefail
 # this installs a package from fedora repos
 # dnf5 install -y tmux 
 
-dnf5 -y install dnf5-plugins
+dnf5 -y install rsync dnf5-plugins
 
 # Use a COPR Example:
 #
