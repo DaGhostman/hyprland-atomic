@@ -20,6 +20,14 @@ systemctl enable rpm-ostreed-automatic.timer
 systemctl set-default graphical.target
 systemctl enable podman.socket
 systemctl enable greetd.service
+systemctl enable bluetooth.service
+systemctl enable coolercontrold.service
+systemctl enable coolercontrol-liqctld.service
+systemctl enable lactd.service
+systemctl enable tuned.service
+systemctl enable tuned-ppd.service
+systemctl enable fwupd-refresh.timer
+systemctl enable fwupd-refresh.service
 
 
 
