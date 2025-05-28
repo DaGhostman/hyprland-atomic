@@ -23,6 +23,7 @@
                 "fwupdmgr",
                 "fzf",
                 "gamescope",
+                "glibc-langpack-*",
                 "greetd",
                 "gstreamer1-plugin-openh264",
                 "heif-pixbuf-loader",
