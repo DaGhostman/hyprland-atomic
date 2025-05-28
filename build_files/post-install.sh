@@ -50,7 +50,7 @@ rm -rf /usr/etc
 rm -rf /sys_files
 rm -rf /boot && mkdir /boot
 
-# sudo restorecon /
+restorecon /
 
 # Check to make sure important packages are present
 /ctx/check-build.sh

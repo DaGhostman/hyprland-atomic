@@ -33,7 +33,7 @@ fi
 
 readarray -t SWAPPED_PACKAGES < <(jq -r "[(.all.swap | (.all, select(.\"$IMAGE_NAME\" != null).\"$IMAGE_NAME\")), \
                              (select(.\"$FEDORA_MAJOR_VERSION\" != null).\"$FEDORA_MAJOR_VERSION\".swap | (.all, select(.\"$IMAGE_NAME\" != null).\"$IMAGE_NAME\"))] \
-                             | to_entries[] | .value | to_entries[] | \"\(.key) \(.value)\"" /ctx/packages.json)
+                             | to_entries[] | (select(.value != null).value | to_entries[] | \"\(.key) \(.value)\")" /ctx/packages.json)
 
 # Swap Packages
 if [[ "${#SWAPPED_PACKAGES[@]}" -gt 0 ]]; then
