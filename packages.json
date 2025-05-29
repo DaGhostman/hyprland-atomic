@@ -75,6 +75,9 @@
             ]
         },
         "exclude": {
+            "all": [
+                "usbmuxd"
+            ],
             "amd": [
                 "libavcodec-free",
                 "libavdevice-free",
@@ -85,8 +88,7 @@
                 "libswresample-free",
                 "libswscale-free",
                 "mesa-va-drivers",
-                "noopenh264",
-                "usbmuxd"
+                "noopenh264"
             ]
         },
         "swap": {
