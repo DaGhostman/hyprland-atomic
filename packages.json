@@ -14,12 +14,14 @@
                 "dunst",
                 "easyeffects",
                 "fastfetch",
+                "fd-find",
                 "ffmpeg",
                 "flatpak",
                 "flatpak-spawn",
                 "fwupd",
                 "fwupd-efi",
                 "fwupdmgr",
+                "fzf",
                 "gamescope",
                 "git",
                 "glibc-langpack-en",
@@ -42,7 +44,9 @@
                 "mesa-vulkan-drivers-freeworld",
                 "mozilla-openh264",
                 "nautilus",
+                "neovim",
                 "openh264",
+                "podman-compose",
                 "power-profiles-daemon",
                 "solaar",
                 "solaar-udev",
@@ -55,7 +59,8 @@
                 "waybar-git",
                 "wl-clipboard",
                 "wlogout",
-                "xdg-desktop-portal-hyprland"
+                "xdg-desktop-portal-hyprland",
+                "zsh"
             ],
             "amd": [
                 "amd-gpu-firmware",
@@ -63,13 +68,6 @@
             ], 
             "nvidia": [
                 "libva-nvidia-driver"
-            ],
-            "dx": [
-                "fzf",
-                "fd-find",
-                "neovim",
-                "podman-compose",
-                "zsh"
             ]
         },
         "exclude": {
