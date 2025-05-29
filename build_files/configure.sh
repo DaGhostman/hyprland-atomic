@@ -2,10 +2,10 @@
 
 set -ouex pipefail
 
+dnf5 -y install rsync
+
 # Copy System Files onto root
 rsync -rvKIc /ctx/sys_files/ /
 rsync -rvKIc /ctx/sys_files/ /usr
 
-cat /etc/greetd/config.toml
-cat /usr/etc/greetd/config.toml
-
+dnf5 -y remove rsync

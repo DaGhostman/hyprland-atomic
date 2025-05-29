@@ -6,7 +6,7 @@ set -ouex pipefail
 ### Install packages
 
 # Install plugins repo so we can `copr enable` repos
-dnf5 -y install rsync dnf5-plugins
+dnf5 -y install dnf5-plugins
 
 # RPMFusion setup
 dnf5 -y install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
@@ -19,3 +19,5 @@ dnf5 -y copr enable pgdev/ghostty
 dnf5 -y copr enable codifryed/CoolerControl
 dnf5 -y copr enable ilyaz/LACT
 
+
+dnf5 -y remove dnf5-plugins

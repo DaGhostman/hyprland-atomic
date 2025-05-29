@@ -2,6 +2,7 @@ export repo_organization := env("GITHUB_REPOSITORY_OWNER", "Dimitar Dimitrov")
 export image_name := env("IMAGE_NAME", "hyperland-atomic")
 export centos_version := env("CENTOS_VERSION", "stream10")
 export fedora_version := env("FEDORA_VERSION", "42")
+export fedora_image_url := env("FEDORA_IMAGE_URL", "quay.io/fedora/fedora-bootc"
 export default_tag := env("DEFAULT_TAG", "latest")
 export bib_image := env("BIB_IMAGE", "quay.io/centos-bootc/bootc-image-builder:latest")
 
@@ -109,6 +110,7 @@ build $target_image=image_name $tag=default_tag $dx="0" $hwe="0" $gdx="0":
     ver="${tag}-${centos_version}.$(date +%Y%m%d)"
 
     BUILD_ARGS=()
+    BUILD_ARGS+=("--build-arg" "BASE_IMAGE=${fedora_image_url}")
     BUILD_ARGS+=("--build-arg" "MAJOR_VERSION=${centos_version}")
     BUILD_ARGS+=("--build-arg" "FEDORA_MAJOR_VERSION=${fedora_version}")
     BUILD_ARGS+=("--build-arg" "IMAGE_NAME=${target_image}")
