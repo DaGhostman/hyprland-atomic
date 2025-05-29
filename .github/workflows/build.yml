@@ -26,11 +26,10 @@ concurrency:
 jobs:
   build_push:
     name: Build and push image
-    variations-matrix:
-      strategy:
-        matrix:
-          variant: ["base", "nvidia", "amd", "intel", ],
-          fedora: ["latest", "rawhide"],
+    strategy:
+      matrix:
+        variant: ["base", "nvidia", "amd", "intel", ]
+        fedora: ["latest", "rawhide"]
     runs-on: ubuntu-24.04
 
     permissions:
