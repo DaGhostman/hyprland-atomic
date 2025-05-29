@@ -18,6 +18,8 @@ env:
   IMAGE_DESC: "Customized Image started from the template for Universal Blue images, using hyperland + ghostty + some other minor minor tweaks"
   IMAGE_REGISTRY: "ghcr.io/${{ github.repository_owner }}"  # do not edit
   ARTIFACTHUB_LOGO_URL: "https://avatars.githubusercontent.com/u/120078124?s=200&v=4"  # You should put your own image here so that you get a fancy profile image on https://artifacthub.io/!
+  BASE_IMAGE: "quay.io/fedora/fedora-bootc"
+  MAJOR_FEDORA_VERSION: 42
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref || github.run_id }}-${{ inputs.brand_name}}-${{ inputs.stream_name }}
@@ -102,6 +104,9 @@ jobs:
         with:
           containerfiles: |
             ./Containerfile
+          build-args: |
+            BASE_IMAGE=${{ env.BASE_IMAGE }}
+            FEDORA_MAJOR_VERSION=${{ matrix.fedora }}
           # Postfix image name with -custom to make it a little more descriptive
           # Syntax: https://docs.github.com/en/actions/learn-github-actions/expressions#format
           image: ${{ env.IMAGE_NAME }}
