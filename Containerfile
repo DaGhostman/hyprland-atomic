@@ -2,6 +2,9 @@ ARG IMAGE_NAME="${IMAGE_NAME}"
 ARG FEDORA_MAJOR_VERSION="${FEDORA_MAJOR_VERSION}"
 ARG BASE_IMAGE="${BASE_IMAGE}"
 
+ENV IMAGE_NAME=${IMAGE_NAME}
+ENV FEDORA_MAJOR_VERSION=${FEDORA_MAJOR_VERSION}
+
 # Allow build scripts to be referenced without being copied into the final image
 FROM scratch AS ctx
 COPY build_files /
