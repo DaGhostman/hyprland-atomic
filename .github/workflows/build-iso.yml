@@ -24,6 +24,7 @@ on:
       - './Justfile'
 
 env:
+  IMAGE_NAME: "${{ github.event.repository.name }}"
   IMAGE_REGISTRY: "ghcr.io/${{ github.repository }}"
   DEFAULT_TAG: "latest"
 
@@ -33,7 +34,11 @@ concurrency:
 
 jobs:
   build:
-    name: Build ISOs
+    name: Build ${{ env.IMAGE_NAME }}-${{ matrix.variant }} ISO
+    strategy:
+      matrix:
+        variant: ["base", "nvidia", "amd", "intel", ]
+        fedora: [42, 43, "rawhide", ]
     runs-on: ${{ inputs.platform == 'amd64' && 'ubuntu-24.04' || 'ubuntu-24.04-arm' }}
     strategy:
       fail-fast: false
@@ -74,12 +79,13 @@ jobs:
           bootc-image-builder-image: ghcr.io/centos-workstation/bootc-image-builder:latest
           use-librepo: true
           config-file: ./iso.toml
-          image: ${{ env.IMAGE_REGISTRY }}:${{ env.DEFAULT_TAG }}
+          image: ${{ env.IMAGE_REGISTRY }}:${{ env.DEFAULT_TAG }}-${{ matrix.variant }}
 
       - name: Upload ISOs and Checksum to Job Artifacts
         if: inputs.upload-to-s3 != true && github.event_name != 'pull_request'
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
+          name: ${{ env.IMAGE_NAME }}-${{ matrix.variant }}
           path: ${{ steps.build.outputs.output-directory }}
           if-no-files-found: error
           retention-days: 0
