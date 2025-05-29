@@ -26,7 +26,6 @@
                 "git",
                 "glibc-langpack-en",
                 "greetd",
-                "gstreamer1-plugin-openh264",
                 "heif-pixbuf-loader",
                 "hyprdim",
                 "hypridle",
@@ -41,11 +40,8 @@
                 "just",
                 "libva-utils",
                 "lm_sensors",
-                "mesa-vulkan-drivers-freeworld",
-                "mozilla-openh264",
                 "nautilus",
                 "neovim",
-                "openh264",
                 "podman-compose",
                 "power-profiles-daemon",
                 "solaar",
@@ -64,14 +60,22 @@
             ],
             "amd": [
                 "amd-gpu-firmware",
-                "lact"
+                "gstreamer1-plugin-openh264",
+                "lact",
+                "mozilla-openh264",
+                "openh264"
             ], 
             "nvidia": [
                 "libva-nvidia-driver"
+            ],
+            "intel": [
+                "mesa-dri-drivers",
+                "intel-gpu-tools",
+                "gstreamer1-vaapi"
             ]
         },
         "exclude": {
-            "all": [
+            "amd": [
                 "libavcodec-free",
                 "libavdevice-free",
                 "libavfilter-free",
@@ -93,7 +97,8 @@
             },
             "amd": {
                 "mesa-va-drivers": "mesa-va-drivers-freeworld",
-                "mesa-vdpau-drivers":"mesa-vdpau-drivers-freeworld"
+                "mesa-vdpau-drivers":"mesa-vdpau-drivers-freeworld",
+                "mesa-vulkan-drivers": "mesa-vulkan-drivers-freeworld"
             }
         }
     }
