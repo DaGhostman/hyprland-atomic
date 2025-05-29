@@ -15,7 +15,7 @@ on:
 
 env:
   IMAGE_NAME: "${{ github.event.repository.name }}"  # the name of the image produced by this build, matches repo names
-  IMAGE_DESC: "My Customized Universal Blue Image"
+  IMAGE_DESC: "Customized Image started from the template for Universal Blue images, using hyperland + ghostty + some other minor minor tweaks"
   IMAGE_REGISTRY: "ghcr.io/${{ github.repository_owner }}"  # do not edit
   ARTIFACTHUB_LOGO_URL: "https://avatars.githubusercontent.com/u/120078124?s=200&v=4"  # You should put your own image here so that you get a fancy profile image on https://artifacthub.io/!
 
@@ -26,6 +26,11 @@ concurrency:
 jobs:
   build_push:
     name: Build and push image
+    variations-matrix:
+      strategy:
+        matrix:
+          variant: ["base", "nvidia", "amd", "intel", "dx", "nvidia-dx", "amd-dx", "intel-dx"]
+          fedora: ["latest", "rawhide"],
     runs-on: ubuntu-24.04
 
     permissions:
@@ -69,9 +74,8 @@ jobs:
           # This generates all the tags for your image, you can add custom tags here too!
           # By default, it should generate "latest" and "latest.(date here)".
           tags: |
-            type=raw,value=latest
-            type=raw,value=latest.{{date 'YYYYMMDD'}}
-            type=raw,value={{date 'YYYYMMDD'}}
+            type=raw,value=${{ matrix.fedora }}-${{ matrix.variant }}
+            type=raw,value=${{ matrix.fedora }}-${{ matrix.variant}}-{{ env.sha_short }}
             type=sha,enable=${{ github.event_name == 'pull_request' }}
             type=ref,event=pr
           labels: |
