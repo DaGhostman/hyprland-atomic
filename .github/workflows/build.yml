@@ -76,7 +76,7 @@ jobs:
           # By default, it should generate "latest" and "latest.(date here)".
           tags: |
             type=raw,value=${{ matrix.fedora }}-${{ matrix.variant }}
-            type=raw,value=${{ matrix.fedora }}-${{ matrix.variant}}-{{ env.sha_short }}
+            type=raw,value=${{ matrix.fedora }}-${{ matrix.variant}}-${{ env.sha_short }}
             type=sha,enable=${{ github.event_name == 'pull_request' }}
             type=ref,event=pr
           labels: |
@@ -107,7 +107,7 @@ jobs:
           build-args: |
             BASE_IMAGE=${{ env.BASE_IMAGE }}
             FEDORA_MAJOR_VERSION=${{ matrix.fedora }}
-            IMAGE_NAME=${{ matrix.variation }}
+            IMAGE_NAME=${{ matrix.variant }}
           # Postfix image name with -custom to make it a little more descriptive
           # Syntax: https://docs.github.com/en/actions/learn-github-actions/expressions#format
           image: ${{ env.IMAGE_NAME }}
