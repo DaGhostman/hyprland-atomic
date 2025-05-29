@@ -1,0 +1,25 @@
+{
+    "all": [
+        "enable": [
+            "greetd.service",
+            "bluetooth.service",
+            "coolercontrold.service",
+            "coolercontrold-liqctld",
+            "tuned.service",
+            "tunded-ppd.service",
+            "fwupd-refresh.timer"
+        ],
+        "disable": []
+    ],
+    "amd": [
+        "enable": [
+            "lactd.service"
+        ],
+        "disable": []
+    ],
+    "dx": [
+        "enable": [
+            "podman.service"
+        ]
+    ]
+}

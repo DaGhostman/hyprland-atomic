@@ -3,7 +3,6 @@
         "include": {
             "all": [
                 "alsa-firmware",
-                "amd-gpu-firmware",
                 "bluez",
                 "blueman-nautilus",
                 "brightnessctl",
@@ -21,10 +20,9 @@
                 "fwupd",
                 "fwupd-efi",
                 "fwupdmgr",
-                "fzf",
-                "fd-find",
                 "gamescope",
-                "glibc-langpack-*",
+                "git",
+                "glibc-langpack-en",
                 "greetd",
                 "gstreamer1-plugin-openh264",
                 "heif-pixbuf-loader",
@@ -39,16 +37,12 @@
                 "hyprsunset",
                 "hyprsysteminfo",
                 "just",
-                "lact",
                 "libva-utils",
                 "lm_sensors",
-                "mesa-vdpau-drivers-freeworld",
                 "mesa-vulkan-drivers-freeworld",
                 "mozilla-openh264",
                 "nautilus",
-                "neovim",
                 "openh264",
-                "podman-compose",
                 "power-profiles-daemon",
                 "solaar",
                 "solaar-udev",
@@ -57,12 +51,24 @@
                 "swww",
                 "tuigreet",
                 "tuned",
-                "tuned-profiles-atomic",
                 "vulkan-tools",
                 "waybar-git",
                 "wl-clipboard",
                 "wlogout",
-                "xdg-desktop-portal-hyprland",
+                "xdg-desktop-portal-hyprland"
+            ],
+            "amd": [
+                "amd-gpu-firmware",
+                "lact"
+            ], 
+            "nvidia": [
+                "libva-nvidia-driver"
+            ],
+            "dx": [
+                "fzf",
+                "fd-find",
+                "neovim",
+                "podman-compose",
                 "zsh"
             ]
         },
@@ -85,7 +91,11 @@
             "all": {
                 "kitty": "ghostty",
                 "power-profiles-daemon": "tuned-ppd",
-                "mesa-va-drivers": "mesa-va-drivers-freeworld"
+                "wofi": "rofi-wayland"
+            },
+            "amd": {
+                "mesa-va-drivers": "mesa-va-drivers-freeworld",
+                "mesa-vdpau-drivers":"mesa-vdpau-drivers-freeworld"
             }
         }
     }

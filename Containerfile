@@ -8,10 +8,9 @@ COPY build_files /
 COPY sys_files /sys_files
 COPY packages.json /
 COPY flatpak.json /
+COPY services.json /
 
 # Base Image
-# FROM ghcr.io/ublue-os/bazzite:stable
-FROM quay.io/fedora/fedora-bootc:42
 FROM ${BASE_IMAGE}:${FEDORA_MAJOR_VERSION}
 
 

@@ -18,17 +18,6 @@ dnf5 versionlock clear
 # Enable Update Timers
 systemctl enable rpm-ostreed-automatic.timer
 systemctl set-default graphical.target
-systemctl enable podman.socket
-systemctl enable greetd.service
-systemctl enable bluetooth.service
-systemctl enable coolercontrold.service
-systemctl enable coolercontrol-liqctld.service
-systemctl enable lactd.service
-systemctl enable tuned.service
-systemctl enable tuned-ppd.service
-systemctl enable fwupd-refresh.timer
-systemctl enable fwupd-refresh.service
-
 
 
 # Configure staged updates for rpm-ostree
@@ -48,7 +37,6 @@ systemctl enable fwupd-refresh.service
 
 # Cleanup
 # Remove tmp files and everything in dirs that make bootc unhappy
-dnf5 -y remove rsync
 dnf5 clean all
 
 rm -rf /tmp/* || true
@@ -57,12 +45,12 @@ rm -rf /sys_files
 rm -rf /boot && mkdir /boot
 
 shopt -s extglob
-# rm -rf /var/!(cache)
-# rm -rf /var/cache/!(libdnf5)
+rm -rf /var/!(cache)
+rm -rf /var/cache/!(libdnf5)
 
 # Make sure /var/tmp is properly created
-# mkdir -p /var/tmp
-# chmod -R 1777 /var/tmp
+mkdir -p /var/tmp
+chmod -R 1777 /var/tmp
 
 restorecon /
 
