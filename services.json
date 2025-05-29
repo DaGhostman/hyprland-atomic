@@ -1,5 +1,5 @@
 {
-    "all": [
+    "all": {
         "enable": [
             "greetd.service",
             "bluetooth.service",
@@ -11,11 +11,11 @@
             "podman.service"
         ],
         "disable": []
-    ],
-    "amd": [
+    },
+    "amd": {
         "enable": [
             "lactd.service"
         ],
         "disable": []
-    ]
+    }
 }
