@@ -5,7 +5,7 @@
             "bluetooth.service",
             "coolercontrold.service",
             "tuned.service",
-            "tunded-ppd.service",
+            "tuned-ppd.service",
             "fwupd-refresh.timer",
             "podman.service"
         ],
