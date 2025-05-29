@@ -2,13 +2,6 @@
 
 set -ouex pipefail
 
-# Enable getty on tty1 for image with no Display Manager
-if [[ "$IMAGE_NAME" == "base" ]]; then
-    systemctl enable getty@tty1
-fi
-
-dnf5 -y remove rsync
-
 # Workaround: Rename just's CN readme to README.zh-cn.md 
 # mv '/usr/share/doc/just/README.中文.md' '/usr/share/doc/just/README.zh-cn.md'
 
