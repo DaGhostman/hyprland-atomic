@@ -59,11 +59,12 @@ jobs:
           # https://linux.die.net/man/1/date
           echo "date=$(date -u +%Y\-%m\-%d\T%H\:%M\:%S\Z)" >> $GITHUB_OUTPUT
 
-      - name: Maximize build space
-        if: inputs.platform != 'arm64'
-        uses: ublue-os/remove-unwanted-software@cc0becac701cf642c8f0a6613bbdaf5dc36b259e # v9
-        with:
-          remove-codeql: true
+        # Might not be needed after removal of `glibc-langpack-*` installation
+      # - name: Maximize build space
+      #   if: inputs.platform != 'arm64'
+      #   uses: ublue-os/remove-unwanted-software@cc0becac701cf642c8f0a6613bbdaf5dc36b259e # v9
+      #   with:
+      #     remove-codeql: true
 
 
       # Image metadata for https://artifacthub.io/ - This is optional but is highly recommended so we all can get a index of all the custom images
