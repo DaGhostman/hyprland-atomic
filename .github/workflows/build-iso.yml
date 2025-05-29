@@ -26,7 +26,6 @@ on:
 env:
   IMAGE_NAME: "${{ github.event.repository.name }}"
   IMAGE_REGISTRY: "ghcr.io/${{ github.repository }}"
-  DEFAULT_TAG: "latest"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref || github.run_id }}
@@ -77,7 +76,7 @@ jobs:
           bootc-image-builder-image: ghcr.io/centos-workstation/bootc-image-builder:latest
           use-librepo: true
           config-file: ./iso.toml
-          image: ${{ env.IMAGE_REGISTRY }}:${{ env.DEFAULT_TAG }}-${{ matrix.variant }}
+          image: ${{ env.IMAGE_REGISTRY }}:${{ matrix.fedora }}-${{ matrix.variant }}
 
       - name: Upload ISOs and Checksum to Job Artifacts
         if: inputs.upload-to-s3 != true && github.event_name != 'pull_request'
