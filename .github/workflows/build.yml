@@ -39,6 +39,10 @@ jobs:
       id-token: write
 
     steps:
+      - name: Locale
+        run: |
+          locale
+          locale -a
       # These stage versions are pinned by https://github.com/renovatebot/renovate
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
