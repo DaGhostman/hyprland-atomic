@@ -2,7 +2,7 @@ export repo_organization := env("GITHUB_REPOSITORY_OWNER", "Dimitar Dimitrov")
 export image_name := env("IMAGE_NAME", "hyperland-atomic")
 export centos_version := env("CENTOS_VERSION", "stream10")
 export fedora_version := env("FEDORA_VERSION", "42")
-export fedora_image_url := env("FEDORA_IMAGE_URL", "quay.io/fedora/fedora-bootc"
+export fedora_image_url := env("FEDORA_IMAGE_URL", "quay.io/fedora/fedora-bootc")
 export default_tag := env("DEFAULT_TAG", "latest")
 export bib_image := env("BIB_IMAGE", "quay.io/centos-bootc/bootc-image-builder:latest")
 
