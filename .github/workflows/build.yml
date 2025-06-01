@@ -30,7 +30,7 @@ jobs:
     strategy:
       matrix:
         variant: ["base", "nvidia", "amd", "intel", ]
-        fedora: [42, 43, "rawhide"]
+        fedora: [42]
     runs-on: ubuntu-24.04
 
     permissions:
