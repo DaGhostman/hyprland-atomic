@@ -3,6 +3,11 @@ contents = """
 %post
 bootc switch --mutate-in-place --transport registry ghcr.io/daghostman/hyperland-atomic:latest
 %end
+zerombr
+firstboot --enable
+lang en_US
+keyboard en
+timezone Europe/London --utc
 """
 
 [customizations.installer.modules]
@@ -17,3 +22,5 @@ enable = [
 disable = [
   "org.fedoraproject.Anaconda.Modules.Subscription",
 ]
+
+
