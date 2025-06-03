@@ -30,6 +30,7 @@
                 "greetd",
                 "grim",
                 "heif-pixbuf-loader",
+                "ImageMagick",
                 "libheif-freeworld",
                 "hyprdim",
                 "hypridle",

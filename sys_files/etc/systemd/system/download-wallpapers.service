@@ -1,0 +1,8 @@
+[Unit]
+Description=Rotate the current `swww` wallpaper with spotligth wallpapers
+
+[Service]
+ExecStart=/usr/local/bin/download-spotlight-wallpapers
+
+[Install]
+Requires=graphical.target
