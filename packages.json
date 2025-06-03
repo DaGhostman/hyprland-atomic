@@ -27,6 +27,7 @@
                 "git",
                 "glibc-langpack-en",
                 "greetd",
+                "grim",
                 "heif-pixbuf-loader",
                 "hyprdim",
                 "hypridle",
@@ -41,18 +42,22 @@
                 "just",
                 "libva-utils",
                 "lm_sensors",
+                "man-db",
                 "nautilus",
                 "neovim",
                 "podman-compose",
-                "power-profiles-daemon",
                 "solaar",
                 "solaar-udev",
+                "slurp",
+                "speech-dispatcher",
+                "speech-dispatcher-utils",
                 "steam-devices",
                 "SwayNotificationCenter",
                 "swww",
                 "systemd-container",
                 "tuigreet",
                 "tuned",
+                "tuned-ppd",
                 "vulkan-tools",
                 "waybar-git",
                 "wl-clipboard",
@@ -77,9 +82,6 @@
             ]
         },
         "exclude": {
-            "all": [
-                "usbmuxd"
-            ],
             "amd": [
                 "libavcodec-free",
                 "libavdevice-free",
@@ -89,14 +91,12 @@
                 "libpostproc-free",
                 "libswresample-free",
                 "libswscale-free",
-                "mesa-va-drivers",
                 "noopenh264"
             ]
         },
         "swap": {
             "all": {
                 "kitty": "ghostty",
-                "power-profiles-daemon": "tuned-ppd",
                 "wofi": "rofi-wayland"
             },
             "amd": {
