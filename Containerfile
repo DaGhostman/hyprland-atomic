@@ -28,7 +28,7 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     /ctx/services.sh && \
     /ctx/configure.sh && \
     /ctx/workarounds.sh && \
-    /ctx/customizations.sh && \
+    /ctx/customization.sh && \
     /ctx/initramfs.sh && \
     /ctx/post-install.sh && \
     ostree container commit
