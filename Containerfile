@@ -27,10 +27,11 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     /ctx/flatpak.sh && \
     /ctx/services.sh && \
     /ctx/configure.sh && \
+    /ctx/workarounds.sh && \
     /ctx/initramfs.sh && \
     /ctx/post-install.sh && \
     ostree container commit
     
 ### LINTING
 ## Verify final image and contents are correct.
-RUN bootc container lint
+RUN bootc container lint --no-truncate
