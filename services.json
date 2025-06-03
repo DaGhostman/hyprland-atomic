@@ -7,7 +7,9 @@
             "tuned.service",
             "tuned-ppd.service",
             "fwupd-refresh.timer",
-            "podman.service"
+            "podman.service",
+            "rotate-wallpaper.timer",
+            "download-wallpapers.timer"
         ],
         "disable": []
     },
