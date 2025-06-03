@@ -21,11 +21,18 @@ for package in "${IMPORTANT_PACKAGES[@]}"; do
 done
 
 
+# Guard against non-UTF8 characters in filesnames
+# because ostree doesn't currently support unpacking them
+# i.e the installer didn't work because of `just` package 
+# having a non-ascii characters in a single filename.
+# See:
+#   - https://github.com/bootc-dev/bootc/pull/983 (for somereason it doesn't work properly althoug it should be implemented?)
+#   - https://github.com/ostreedev/ostree/issues/2568
+#
 readarray -t INVALID_FILENAMES < <(find / -name '*[![:print:]]*' 2>/dev/null)
 if [[ "${#INVALID_FILENAMES[@]}" -gt 0 ]]; then
-    echo -e "Found invalid (non-UTF8 filenames, ostree doesn't like them\n"
+    echo -e "Found ${#INVALID_FILENAMES[@]} invalid (non-UTF8 filenames, ostree doesn't like them). Offending files: \n"
     echo -e $INVALID_FILENAMES
+
     exit 127;
 fi
-
-
