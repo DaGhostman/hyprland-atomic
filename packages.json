@@ -106,7 +106,7 @@
         },
         "swap": {
             "all": {
-                "libvacodec-free": "libvacodec-freeworld",
+                "libavcodec-free": "libavcodec-freeworld",
                 "kitty": "ghostty",
                 "wofi": "rofi-wayland"
             },
