@@ -90,12 +90,12 @@
             "intel": [
                 "mesa-dri-drivers",
                 "intel-gpu-tools",
-                "gstreamer1-vaapi"
+                "gstreamer1-vaapi",
+                "libva-intel-driver"
             ]
         },
         "exclude": {
             "amd": [
-                "libavcodec-free",
                 "libavdevice-free",
                 "libavfilter-free",
                 "libavformat-free",
