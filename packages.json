@@ -17,6 +17,7 @@
                 "fastfetch",
                 "fd-find",
                 "ffmpeg",
+                "ffmpeg-libs",
                 "flatpak",
                 "flatpak-spawn",
                 "fwupd",
@@ -29,21 +30,31 @@
                 "greetd",
                 "grim",
                 "heif-pixbuf-loader",
+                "libheif-freeworld",
                 "hyprdim",
                 "hypridle",
                 "hyprland",
                 "hyprland-autoname-workspaces",
                 "hyprland-contrib",
                 "hyprland-plugins",
+                "hyprland-protocols",
                 "hyprlock",
                 "hyprpolkitagent",
                 "hyprsunset",
                 "hyprsysteminfo",
                 "libva-utils",
                 "lm_sensors",
+                "libcamera",
+                "libcamera-tools",
+                "libcamera-gstreamer",
+                "libcamera-ipa",
+                "libcamera-ipa",
+                "lshw",
                 "man-db",
                 "nautilus",
                 "neovim",
+                "net-tools",
+                "nvme-cli",
                 "podman-compose",
                 "solaar",
                 "solaar-udev",
@@ -72,6 +83,7 @@
                 "openh264"
             ], 
             "nvidia": [
+                "nvtop",
                 "libva-nvidia-driver"
             ],
             "intel": [
@@ -95,6 +107,7 @@
         },
         "swap": {
             "all": {
+                "libvacodec-free": "libvacodec-freeworld",
                 "kitty": "ghostty",
                 "wofi": "rofi-wayland"
             },
