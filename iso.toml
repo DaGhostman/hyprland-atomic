@@ -1,13 +1,14 @@
 [customizations.installer.kickstart]
 contents = """
-%post
-bootc switch --mutate-in-place --transport registry ghcr.io/daghostman/hyperland-atomic:latest
-%end
 zerombr
 firstboot --enable
 lang en_US
 keyboard en
 timezone Europe/London --utc
+
+%post
+bootc switch --mutate-in-place --transport registry quay.io/ddimitrov/hyperland-atomic:latest
+%end
 """
 
 [customizations.installer.modules]
