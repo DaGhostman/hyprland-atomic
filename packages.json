@@ -56,6 +56,7 @@
                 "neovim",
                 "net-tools",
                 "nvme-cli",
+                "playerctl",
                 "podman-compose",
                 "solaar",
                 "solaar-udev",
