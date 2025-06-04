@@ -1,8 +1,9 @@
+WALLPAPER_FOLDER="${HOME}/.cache/spotlight-wallpapres/images/"
 mkdir -p $WALLPAPER_FOLDER
 
-CURRENT="$(find /var/local/wallpapers/spotlight/ -type f | shuf -n10 | shuf -n1)";
+CURRENT="$(find $WALLPAPER_FOLDER -type f | shuf -n10 | shuf -n1)";
 
 if [[ ! -z "$(which swww)" ]]; then 
     swww img ${CURRENT}
-    ln -fs "${CURRENT}" /var/local/wallpapers/.current
+    ln -fs "${CURRENT}" "$(dirname $WALLPAPER_FOLDER)/.current"
 fi

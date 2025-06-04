@@ -1,6 +1,6 @@
 BASE_URL="https://www.bing.com/"
 IMAGE_COUNT=10
-WALLPAPER_FOLDER="/usr/local/wallpapers/spotlight/"
+WALLPAPER_FOLDER="${HOME}/.cache/spotlight-wallpapers/images/"
 LOCK="/tmp/sway-bing-wallpaper-downloader.lock"
 # See https://learn.microsoft.com/en-us/bing/search-apis/bing-image-search/reference/market-codes#trending-image-api-markets
 MARKET=
