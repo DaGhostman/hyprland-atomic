@@ -5,13 +5,19 @@ on:
     branches:
       - main
   schedule:
-    - cron: '05 10 * * *'  # 10:05am UTC everyday
+    - cron: '0 0,4,8,12,16,20 * * *'  # every 4th hour UTC everyday
   push:
     branches:
       - main
     paths-ignore:
       - '**/README.md'
   workflow_dispatch:
+  workflow_run: 
+    workflows: [Build ISOs]
+    types:
+      - completed
+    branches:
+      - [main]
 
 env:
   IMAGE_NAME: "${{ github.event.repository.name }}"  # the name of the image produced by this build, matches repo names
@@ -80,7 +86,7 @@ jobs:
           # By default, it should generate "latest" and "latest.(date here)".
           tags: |
             type=raw,value=${{ matrix.fedora }}-${{ matrix.variant }}
-            type=raw,value=${{ matrix.fedora }}-${{ matrix.variant}}-${{ env.sha_short }}
+            type=raw,value=${{ matrix.fedora }}-${{ matrix.variant}}-${{ github.sha }}
             type=sha,enable=${{ github.event_name == 'pull_request' }}
             type=ref,event=pr
           labels: |
