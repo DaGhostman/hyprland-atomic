@@ -38,7 +38,6 @@ rm -rf /sys_files
 rm -rf /boot && mkdir /boot
 
 shopt -s extglob
-rm -rf /var/!(cache)
 rm -rf /var/cache/!(libdnf5)
 
 # Make sure /var/tmp is properly created
