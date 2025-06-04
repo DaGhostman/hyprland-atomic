@@ -22,6 +22,12 @@ on:
       - './iso.toml'
       - './.github/workflows/build-iso.yml'
       - './Justfile'
+  workflow_run:
+    workflows: [Build Custom Image]
+    types:
+      - completed
+    branches:
+      - [main]
 
 env:
   IMAGE_NAME: "${{ github.event.repository.name }}"
