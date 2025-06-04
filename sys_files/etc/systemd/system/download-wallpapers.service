@@ -5,4 +5,4 @@ Description=Rotate the current `swww` wallpaper with spotligth wallpapers
 ExecStart=/usr/local/bin/download-spotlight-wallpapers
 
 [Install]
-Requires=graphical.target
+RequiredBy=graphical.target
