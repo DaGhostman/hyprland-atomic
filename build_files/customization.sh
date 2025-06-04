@@ -16,6 +16,6 @@ rm future-cursor.tar.gz
 flatpak override --filesystem=/usr/share/icons/:ro
 
 #
-# Bootstrap location for spotlight wallpapers
+# Configure bootc remote properly
 #
-mkdir -p /var/local/wallpaper/spotlight
+bootc switch --mutate-in-place quay.io/ddimitrov/hyprland-atomic:$FEDORA_MAJOR_VERSION-$IMAGE_NAME
