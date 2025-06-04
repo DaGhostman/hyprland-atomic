@@ -5,6 +5,8 @@ LOCK="/tmp/sway-bing-wallpaper-downloader.lock"
 # See https://learn.microsoft.com/en-us/bing/search-apis/bing-image-search/reference/market-codes#trending-image-api-markets
 MARKET=
 
+mkdir -p $WALLPAPER_FOLDER
+
 REQUEST_PARAMS="?format=js&idx=0&n=${IMAGE_COUNT}&mbl=1&mkt=${MARKET}"
 
     RESPONSE=$(curl -X GET "${BASE_URL}/HPImageArchive.aspx${REQUEST_PARAMS}" --silent)

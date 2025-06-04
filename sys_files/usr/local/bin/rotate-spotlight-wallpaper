@@ -1,3 +1,5 @@
+mkdir -p $WALLPAPER_FOLDER
+
 CURRENT="$(find /var/local/wallpapers/spotlight/ -type f | shuf -n10 | shuf -n1)";
 
 if [[ ! -z "$(which swww)" ]]; then 
