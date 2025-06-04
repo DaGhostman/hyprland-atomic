@@ -43,6 +43,9 @@
                 "hyprpolkitagent",
                 "hyprsunset",
                 "hyprsysteminfo",
+                "iw",
+                "iwlwifi-dvm-firmware",
+                "iwlwifi-mvm-firmware",
                 "libva-utils",
                 "lm_sensors",
                 "libcamera",
@@ -50,6 +53,7 @@
                 "libcamera-gstreamer",
                 "libcamera-ipa",
                 "libcamera-ipa",
+                "linux-firmware",
                 "lshw",
                 "man-db",
                 "nautilus",
@@ -58,6 +62,7 @@
                 "nvme-cli",
                 "playerctl",
                 "podman-compose",
+                "realtek-firmware",
                 "solaar",
                 "solaar-udev",
                 "slurp",
@@ -92,7 +97,8 @@
                 "mesa-dri-drivers",
                 "intel-gpu-tools",
                 "gstreamer1-vaapi",
-                "libva-intel-driver"
+                "libva-intel-driver",
+                "libva-intel-media-driver"
             ]
         },
         "exclude": {
