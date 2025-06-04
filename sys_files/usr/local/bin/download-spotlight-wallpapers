@@ -1,6 +1,6 @@
 BASE_URL="https://www.bing.com/"
 IMAGE_COUNT=10
-WALLPAPER_FOLDER="/usr/local/wallpapers/spotlight"
+WALLPAPER_FOLDER="/usr/local/wallpapers/spotlight/"
 LOCK="/tmp/sway-bing-wallpaper-downloader.lock"
 # See https://learn.microsoft.com/en-us/bing/search-apis/bing-image-search/reference/market-codes#trending-image-api-markets
 MARKET=
@@ -18,12 +18,10 @@ REQUEST_PARAMS="?format=js&idx=0&n=${IMAGE_COUNT}&mbl=1&mkt=${MARKET}"
 
         if [ ! -f "${FILENAME}" ]; then
             curl -X GET ${BASE_URL}/${IMAGE}_UHD.jpg --output - --silent > $FILENAME
-	    mogrify -format png "${FILENAME}" -quality 100 -quiet
-	    rm "${FILENAME}"
+            mogrify -format png "${FILENAME}" -quality 100 -quiet
+            rm "${FILENAME}"
             echo "DONE";
         else
             echo "EXISTS";
         fi
-
-        echo $FILENAME;
     done
