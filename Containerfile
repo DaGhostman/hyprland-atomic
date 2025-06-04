@@ -25,8 +25,8 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     /ctx/build.sh && \
     /ctx/packages.sh && \
     /ctx/flatpak.sh && \
-    /ctx/services.sh && \
     /ctx/configure.sh && \
+    /ctx/services.sh && \
     /ctx/workarounds.sh && \
     /ctx/customization.sh && \
     /ctx/initramfs.sh && \
