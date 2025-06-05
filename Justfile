@@ -1,6 +1,6 @@
 export repo_organization := env("GITHUB_REPOSITORY_OWNER", "Dimitar Dimitrov")
 export image_name := env("IMAGE_NAME", "hyperland-atomic")
-export centos_version := env("CENTOS_VERSION", "stream10")
+export centos_version := env("CENTOS_VERSION", "latest")
 export fedora_version := env("FEDORA_VERSION", "42")
 export fedora_image_url := env("FEDORA_IMAGE_URL", "quay.io/fedora/fedora-bootc")
 export default_tag := env("DEFAULT_TAG", "latest")
@@ -9,10 +9,17 @@ export bib_image := env("BIB_IMAGE", "quay.io/centos-bootc/bootc-image-builder:l
 alias build-vm := build-qcow2
 alias rebuild-vm := rebuild-qcow2
 alias run-vm := run-vm-qcow2
+alias fix-permissions := chmod
 
 [private]
 default:
     @just --list
+
+# Setup permissions of local files to be used inside the container
+[group('Utility')]
+chmod:
+    chmod -R +x sys_files/usr/local/bin/
+    chmod -R +x sys_files/etc/profile.d/
 
 # Check Just Syntax
 [group('Just')]
@@ -204,7 +211,7 @@ _build-bib $target_image $tag $type $config: (_rootful_load_image target_image t
       --rm \
       -it \
       --privileged \
-      --pull=newer \
+      --pull=always \
       --net=host \
       --security-opt label=type:unconfined_t \
       -v $(pwd)/${config}:/config.toml:ro \
