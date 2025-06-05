@@ -1,0 +1,27 @@
+[customizations.installer.kickstart]
+contents = """
+zerombr
+firstboot --enable
+lang en_US
+keyboard en
+timezone Europe/London --utc
+
+%post --erroronfail
+bootc switch --mutate-in-place --transport registry quay.io/ddimitrov/hyperland-atomic:42-amd
+%end
+"""
+
+[customizations.installer.modules]
+enable = [
+  "org.fedoraproject.Anaconda.Modules.Storage",
+  "org.fedoraproject.Anaconda.Modules.Security",
+  "org.fedoraproject.Anaconda.Modules.Users",
+  "org.fedoraproject.Anaconda.Modules.Timezone",
+  "org.fedoraproject.Anaconda.Modules.Network",
+  "org.fedoraproject.Anaconda.Modules.Services",
+]
+disable = [
+  "org.fedoraproject.Anaconda.Modules.Subscription",
+]
+
+

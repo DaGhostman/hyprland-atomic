@@ -19,7 +19,7 @@ on:
     branches:
       - main
     paths:
-      - './iso.toml'
+      - './configs/iso.toml'
       - './.github/workflows/build-iso.yml'
       - './Justfile'
 
@@ -75,7 +75,7 @@ jobs:
         with:
           bootc-image-builder-image: ghcr.io/centos-workstation/bootc-image-builder:latest
           use-librepo: true
-          config-file: ./iso.toml
+          config-file: ./configs/iso-${{ matrix.fedora }}-${{ matrix.variant }}.toml
           image: ${{ env.IMAGE_REGISTRY }}:${{ matrix.fedora }}-${{ matrix.variant }}
 
       - name: Upload ISOs and Checksum to Job Artifacts

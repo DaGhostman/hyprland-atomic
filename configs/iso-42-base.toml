@@ -6,8 +6,8 @@ lang en_US
 keyboard en
 timezone Europe/London --utc
 
-%post
-bootc switch --mutate-in-place --transport registry quay.io/ddimitrov/hyperland-atomic:latest
+%post --erroronfail
+bootc switch --mutate-in-place --transport registry quay.io/ddimitrov/hyperland-atomic:42-base
 %end
 """
 

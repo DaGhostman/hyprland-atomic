@@ -14,8 +14,3 @@ rm future-cursor.tar.gz
 # Expose cursor to flatpak packages
 #
 flatpak override --filesystem=/usr/share/icons/:ro
-
-#
-# Configure bootc remote properly
-#
-bootc switch --mutate-in-place quay.io/ddimitrov/hyprland-atomic:$FEDORA_MAJOR_VERSION-$IMAGE_NAME
