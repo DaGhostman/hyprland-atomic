@@ -24,7 +24,7 @@ ARG FEDORA_MAJOR_VERSION="${FEDORA_MAJOR_VERSION}"
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     /ctx/build.sh && \
     /ctx/packages.sh && \
-    /ctx/flatpak.sh && \
+    # /ctx/flatpak.sh && \
     /ctx/configure.sh && \
     /ctx/services.sh && \
     /ctx/workarounds.sh && \
