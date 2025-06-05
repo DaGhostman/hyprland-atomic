@@ -1,0 +1,56 @@
+#!/bin/bash
+
+# Install flatpaks that were predefined as part of the distribution'
+# 
+install_flatpaks() {
+    if [[ -z $(which flatpak) ]]; then
+        echo -e "Flatpak is not installed, skipping flatpack packages"
+        exit 0
+    fi
+
+    flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
+    readarray -t INCLUDED_PACKAGES < <(jq -r ".flatpak | sort | unique[]" /etc/extra/packages.json)
+
+    # Install Packages
+    if [[ "${#INCLUDED_PACKAGES[@]}" -gt 0 ]]; then
+        flatpak install -y flathub \
+            "${INCLUDED_PACKAGES[@]}"
+    else
+        echo "No flatpak packages to install."
+
+    fi
+
+
+    # readarray -t EXCLUDED_FLATPAKS < <(jq -r "[(.all.exclude | (.all, select(.\"$IMAGE_NAME\" != null).\"$IMAGE_NAME\")[]), \
+    #                              (select(.\"$FEDORA_MAJOR_VERSION\" != null).\"$FEDORA_MAJOR_VERSION\".exclude | (.all, select(.\"$IMAGE_NAME\" != null).\"$IMAGE_NAME\")[])] \
+    #                              | sort | unique[]" /etc/extra/flatpak.json)
+    #
+    # if [[ "${#EXCLUDED_FLATPAKS[@]}" -gt 0 ]]; then
+    #     flatpak remove --assymeyes \
+    #         "${EXCLUDED_FLATPAKS[@]}"
+    # else
+    #     echo "No flatpak packages to remove."
+    # fi
+}
+
+
+# Install flatpaks that were predefined as part of the distribution'
+# 
+install_brew() {
+    if [[ -z $(which brew) ]]; then
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    fi
+
+    readarray -t INCLUDED_PACKAGES < <(jq -r ".brew | sort | unique[]" /etc/extra/packages.json)
+
+    # Install Packages
+    if [[ "${#INCLUDED_PACKAGES[@]}" -gt 0 ]]; then
+        flatpak install -y flathub \
+            "${INCLUDED_PACKAGES[@]}"
+    fi
+}
+
+
+install_flatpaks
+install_brew
