@@ -1,0 +1,17 @@
+{
+    "all": {
+        "include": [
+            "gdb",
+            "eza",
+            "node",
+            "valgrind",
+            "yazi",
+            "zellij",
+            "hyperfine",
+            "luajit",
+            "luarocks",
+            "starship"
+        ],
+        "exclude": []
+    }
+}
