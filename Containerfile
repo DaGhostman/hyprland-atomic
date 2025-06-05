@@ -7,7 +7,6 @@ FROM scratch AS ctx
 COPY build_files /
 COPY sys_files /sys_files
 COPY packages.json /
-COPY flatpak.json /
 COPY services.json /
 
 # Base Image
@@ -24,7 +23,6 @@ ARG FEDORA_MAJOR_VERSION="${FEDORA_MAJOR_VERSION}"
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     /ctx/build.sh && \
     /ctx/packages.sh && \
-    # /ctx/flatpak.sh && \
     /ctx/configure.sh && \
     /ctx/services.sh && \
     /ctx/workarounds.sh && \
