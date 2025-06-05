@@ -1,0 +1,53 @@
+[private]
+default:
+    @just --list
+
+# Internal alias to execute the `atomic` command
+[private]
+atomic *args:
+    #!/bin/bash
+    just -f /etc/Justfile {{ args }}
+
+# Bootstrap the current installation by installing brew & requested flatpaks.
+[group('Bootstrap')]
+bootstrap:
+    @just install-flathub-repo
+    @just install-brew
+    @just install-taps
+
+# Install brew
+[group('Brew')]
+[private]
+install-brew:
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+[group('Brew')]
+[private]
+install-taps:
+    /home/linuxbrew/.linuxbrew/bin/brew install gdb eza valgrind yazi zellij hyperfine luajit luarocks starship 
+
+# Install brew packages `atomic brew ..`
+[group('Brew')]
+brew *pkgs:
+    /home/linuxbrew/.linuxbrew/bin/brew install {{ pkgs }}
+
+# Install flatpak packages
+[group('Flatpak')]
+flatpak *pkgs:
+    #!/usr/bin/bash
+    function flatpakif() {
+        set -eoux pipefail
+        if [[ -z "$(which flatpak)" ]]; then
+            echo -e "flatpak is not installed";
+        else
+            flatpak $@
+        fi
+    }
+    flatpakif install flathub --user {{ pkgs }}
+
+
+
+[group('Flatpak')]
+[private]
+install-flathub-repo:
+    @just flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
