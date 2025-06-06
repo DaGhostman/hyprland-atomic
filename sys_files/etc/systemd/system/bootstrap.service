@@ -1,6 +1,6 @@
 [Unit]
-Name=Bootstrap installation
-After=network.target
+Description=Bootstrap installation
+Requires=network.target
 ConditionFirstBoot=yes
 
 [Service]
