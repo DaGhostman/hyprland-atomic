@@ -43,3 +43,6 @@ flatpak *pkgs:
     }
     flatpakif install flathub --user {{ pkgs }}
 
+[group('Bootc')]
+target version="42" variant="base":
+    sudo bootc switch quay.io/ddimitrov/hyprland-atomic:{{version}}-{{variant}}
