@@ -20,18 +20,6 @@ install_flatpaks() {
         echo "No flatpak packages to install."
 
     fi
-
-
-    # readarray -t EXCLUDED_FLATPAKS < <(jq -r "[(.all.exclude | (.all, select(.\"$IMAGE_NAME\" != null).\"$IMAGE_NAME\")[]), \
-    #                              (select(.\"$FEDORA_MAJOR_VERSION\" != null).\"$FEDORA_MAJOR_VERSION\".exclude | (.all, select(.\"$IMAGE_NAME\" != null).\"$IMAGE_NAME\")[])] \
-    #                              | sort | unique[]" /etc/extra/flatpak.json)
-    #
-    # if [[ "${#EXCLUDED_FLATPAKS[@]}" -gt 0 ]]; then
-    #     flatpak remove --assymeyes \
-    #         "${EXCLUDED_FLATPAKS[@]}"
-    # else
-    #     echo "No flatpak packages to remove."
-    # fi
 }
 
 
@@ -46,7 +34,7 @@ install_brew() {
 
     # Install Packages
     if [[ "${#INCLUDED_PACKAGES[@]}" -gt 0 ]]; then
-        flatpak install -y flathub \
+        brew install \
             "${INCLUDED_PACKAGES[@]}"
     fi
 }
