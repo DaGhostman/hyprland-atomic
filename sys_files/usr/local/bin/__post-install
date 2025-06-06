@@ -1,5 +1,8 @@
 #!/bin/bash
 
+copy_configs() {
+    cp /usr/share/hypr/hyprland.conf ~/.config/hypr/hyprland.conf
+}
 # Install flatpaks that were predefined as part of the distribution'
 # 
 install_flatpaks() {
@@ -9,6 +12,7 @@ install_flatpaks() {
     fi
 
     flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+    flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
     readarray -t INCLUDED_PACKAGES < <(jq -r ".flatpak | sort | unique[]" /etc/extra/packages.json)
 
@@ -27,7 +31,10 @@ install_flatpaks() {
 # 
 install_brew() {
     if [[ -z $(which brew) ]]; then
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	if [[ -z $(ls /home/linuxbrew/.linuxbrew/bin/brew) ]]; then
+            ln -sf /home/linuxbrew/.linuxbrew/bin/brew /usr/local/bin/brew
+	fi
     fi
 
     readarray -t INCLUDED_PACKAGES < <(jq -r ".brew | sort | unique[]" /etc/extra/packages.json)
@@ -40,5 +47,6 @@ install_brew() {
 }
 
 
+copy_configs
 install_flatpaks
 install_brew

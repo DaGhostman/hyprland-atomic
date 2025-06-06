@@ -1,10 +1,9 @@
 [Unit]
 Description=Bootstrap installation
-After=network.target
 ConditionFirstBoot=yes
 
 [Service]
 ExecStart=/usr/local/bin/__post-install
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=graphical.target
