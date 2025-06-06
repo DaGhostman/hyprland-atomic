@@ -33,6 +33,7 @@
                 "heif-pixbuf-loader",
                 "ImageMagick",
                 "libheif-freeworld",
+                "libGLU",
                 "hyprdim",
                 "hypridle",
                 "hyprland",
