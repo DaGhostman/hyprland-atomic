@@ -21,6 +21,7 @@
                 "ffmpeg-libs",
                 "flatpak",
                 "flatpak-spawn",
+		"fuse",
                 "fwupd",
                 "fwupd-efi",
                 "fwupdmgr",
