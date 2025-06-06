@@ -11,8 +11,6 @@ atomic *args:
 # Bootstrap the current installation by installing brew & requested flatpaks.
 [group('Bootstrap')]
 bootstrap:
-    @just install-flathub-repo
-    @just install-brew
     @just install-taps
 
 # Install brew
@@ -45,9 +43,3 @@ flatpak *pkgs:
     }
     flatpakif install flathub --user {{ pkgs }}
 
-
-
-[group('Flatpak')]
-[private]
-install-flathub-repo:
-    @just flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
