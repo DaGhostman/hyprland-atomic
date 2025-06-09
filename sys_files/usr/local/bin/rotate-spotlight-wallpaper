@@ -1,4 +1,4 @@
-WALLPAPER_FOLDER="${HOME}/.cache/spotlight-wallpapres/images/"
+WALLPAPER_FOLDER="${HOME}/.cache/spotlight-wallpapers/images/"
 mkdir -p $WALLPAPER_FOLDER
 
 CURRENT="$(find $WALLPAPER_FOLDER -type f | shuf -n10 | shuf -n1)";
