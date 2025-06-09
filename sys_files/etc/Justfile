@@ -45,4 +45,4 @@ flatpak *pkgs:
 
 [group('Bootc')]
 target version="42" variant="base":
-    sudo bootc switch quay.io/ddimitrov/hyprland-atomic:{{version}}-{{variant}}
+    sudo rpm-ostree rebase ostree-remote-registry:quay:quay.io/ddimitrov/hyprland-atomic:{{version}}-{{variant}}
