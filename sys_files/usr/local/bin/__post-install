@@ -27,7 +27,7 @@ install_flatpaks() {
     # Install Packages
     if [[ "${#INCLUDED_PACKAGES[@]}" -gt 0 ]]; then
         flatpak install -y flathub \
-            "${INCLUDED_PACKAGES[@]}"
+            --system "${INCLUDED_PACKAGES[@]}"
     else
         echo "No flatpak packages to install."
 
