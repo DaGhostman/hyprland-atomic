@@ -41,8 +41,9 @@ flatpak *pkgs:
             flatpak $@
         fi
     }
-    flatpakif install flathub --user {{ pkgs }}
+    flatpakif install flathub --assumeyes --user {{ pkgs }}
 
 [group('Bootc')]
-target version="42" variant="base":
+target variant="base" version="42":
+    sudo bootc switch --apply quay.io/ddimitrov/hyprland-atomic:{{ version }}-{{ variant }}
     sudo rpm-ostree rebase ostree-remote-registry:quay:quay.io/ddimitrov/hyprland-atomic:{{version}}-{{variant}}
