@@ -71,7 +71,7 @@ function cmd_or() {
     _CMD="$1"
     _DEFAULT="$2"
 
-    value_or "$(which \"${_FILE}\" 2>/dev/null)" "${_DEFAULT}"
+    value_or "$(which \"${_CMD}\" 2>/dev/null)" "${_DEFAULT}"
     unset _CMD _DEFAULT
 }
 
