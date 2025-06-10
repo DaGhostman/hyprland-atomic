@@ -2,6 +2,8 @@
 
 copy_configs() {
     cp /usr/share/hypr/hyprland.conf ~/.config/hypr/hyprland.conf
+    # TODO: add configuration for some packages, such as `zellij`, `ghostty`, etc.
+    # as well as to add fonts and configure ligatures where applicable
 }
 # Install flatpaks that were predefined as part of the distribution'
 # 
