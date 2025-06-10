@@ -40,6 +40,7 @@ function value_or_run() {
         echo $_CONDITION
     fi
 
+    unset _CONDITION _CALLBACK
 }
 
 function var_or_run() {
@@ -48,12 +49,15 @@ function var_or_run() {
 	return;
     fi
 
-    _CONDITION="$1"
+    _CONDITION=$1
     _CALLBACK=${@:2}
 
-    if [[ -z $(value_or $_CONDITION) ]]; then
+    if [[ -z $(value_or ${!_CONDITION}) ]]; then
         eval "${_CALLBACK}"
     fi
+
+
+    unset _CONDITION _CALLBACK
 
     echo "${!1}"
 }
