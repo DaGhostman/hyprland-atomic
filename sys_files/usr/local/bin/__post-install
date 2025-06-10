@@ -10,6 +10,7 @@ copy_configs() {
     # TODO: add configuration for some packages, such as `zellij`, `ghostty`, etc.
     # as well as to add fonts and configure ligatures where applicable
 }
+
 # Install flatpaks that were predefined as part of the distribution'
 # 
 install_flatpaks() {
@@ -37,13 +38,6 @@ install_flatpaks() {
 # Install flatpaks that were predefined as part of the distribution'
 # 
 install_brew() {
-    if [[ -z $(which brew) ]]; then
-        NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-	if [[ -z $(ls /home/linuxbrew/.linuxbrew/bin/brew) ]]; then
-            ln -sf /home/linuxbrew/.linuxbrew/bin/brew /usr/local/bin/brew
-	fi
-    fi
-
     readarray -t INCLUDED_PACKAGES < <(jq -r ".brew | sort | unique[]" /etc/extra/packages.json)
 
     # Install Packages
