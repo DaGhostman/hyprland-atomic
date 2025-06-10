@@ -1,7 +1,12 @@
 #!/bin/bash
 
 copy_configs() {
-    cp /usr/share/hypr/hyprland.conf ~/.config/hypr/hyprland.conf
+    if [[ ! -f ~/.config/hypr/hyprland.conf ]]; then
+        cp /usr/share/hypr/hyprland.conf ~/.config/hypr/hyprland.conf
+    else
+        echo "Hyprland configuration exists in home, skipping"
+    fi
+
     # TODO: add configuration for some packages, such as `zellij`, `ghostty`, etc.
     # as well as to add fonts and configure ligatures where applicable
 }
