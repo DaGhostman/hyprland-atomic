@@ -105,6 +105,8 @@
                 "mesa-dri-drivers",
                 "intel-gpu-tools",
                 "gstreamer1-vaapi",
+                "oneVPL-intel-gpu",
+                "intel-mediasdk",
                 "libva-intel-driver",
                 "libva-intel-media-driver"
             ]
