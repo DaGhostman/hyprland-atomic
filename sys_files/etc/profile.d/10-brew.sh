@@ -1,5 +1,7 @@
 # Load brew
 BREW_PREFIX=/home/linuxbrew/.linuxbrew
 if [[ ! -f ${BREW_PREFIX}/bin/brew ]]; then
-    eval "\$(${BREW_PREFIX}/bin/brew shellenv)"
+    NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+else
+    eval "$(${BREW_PREFIX}/bin/brew shellenv)"
 fi

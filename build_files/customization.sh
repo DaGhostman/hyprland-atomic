@@ -15,8 +15,3 @@ rm future-cursor.tar.gz
 #
 flatpak override --filesystem=/usr/share/icons/:ro
 
-
-#
-# Install brew
-#
-NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
