@@ -44,7 +44,7 @@ install_brew() {
 
     # Install Packages
     if [[ "${#INCLUDED_PACKAGES[@]}" -gt 0 ]]; then
-        brew install \
+        /home/linuxbrew/.linuxbrew/bin/brew install \
             "${INCLUDED_PACKAGES[@]}"
     fi
 }
