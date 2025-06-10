@@ -1,19 +1,19 @@
 function atomic() {
-    if [[ ! -z "$(cmd_or just)" ]]; then
-        just -f /etc/Justfile $@
+    if [[ ! -z "$(cmd_or /home/linuxbrew/.linuxbrew/bin/just)" ]]; then
+        /home/linuxbrew/.linuxbrew/bin/just -f /etc/Justfile $@
     else
 	echo "It appears your system hasn't been setup with the internal/extra tooling, consider running \`/usr/local/bin/__post_install\` to ensure the defaults have been setup and try again."
     fi
 }
 
 function ls() {
-    if [[ ! -z $(which eza) ]]; then
-        eza --icons --group-directories-first --git $@
+    if [[ -f "/home/linuxbrew/.linuxbrew/bin/eza" ]]; then
+        /home/linuxbrew/.linuxbrew/bin/eza --icons --group-directories-first --git $@
     else
         /bin/ls $@
     fi
 }
 
-if [[ ! -z $(which fzf) ]]; then
-    eval "$(fzf --$(basename $(file_or ${0} ${SHELL})))"
+if [[ -f "/home/linuxbrew/.linuxbrew/bin/fzf" ]]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/fzf --$(basename $(file_or ${0} ${SHELL})))"
 fi
