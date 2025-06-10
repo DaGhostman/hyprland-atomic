@@ -5,4 +5,4 @@ Description=Bootstrap installation
 ExecStart=/usr/local/bin/__post-install
 
 [Install]
-RequiredBy=default.target
+RequiredBy=graphical.target

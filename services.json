@@ -7,7 +7,8 @@
             "tuned.service",
             "tuned-ppd.service",
             "fwupd-refresh.timer",
-            "podman.service"
+            "podman.service",
+            "bootstrap.service"
         ],
         "disable": []
     },
@@ -19,9 +20,7 @@
     },
     "user": {
         "all": {
-            "enable": [
-                "bootstrap.service"
-	    ],
+            "enable": [],
 	    "disable": []
         }
     }
