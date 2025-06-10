@@ -32,6 +32,8 @@ install_flatpaks() {
         echo "No flatpak packages to install."
 
     fi
+
+    flatpak override --filesystem=/usr/share/icons/:ro
 }
 
 
