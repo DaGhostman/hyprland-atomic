@@ -15,3 +15,7 @@ rm future-cursor.tar.gz
 #
 flatpak override --filesystem=/usr/share/icons/:ro
 
+# 
+# Create symlink to `ghostty` executable as `kitty` to enable default shortcuts to work (at least be able to open a terminal)
+#
+ln -sf "$(which ghostty)" /usr/local/bin/kitty
