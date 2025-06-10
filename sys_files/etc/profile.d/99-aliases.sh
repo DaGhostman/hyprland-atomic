@@ -1,5 +1,5 @@
 function atomic() {
-    if [[ ! -z "$(cmd_or "just")" ]]; then
+    if [[ ! -z "$(cmd_or just)" ]]; then
         just -f /etc/Justfile $@
     else
 	echo "It appears your system hasn't been setup with the internal/extra tooling, consider running \`/usr/local/bin/__post_install\` to ensure the defaults have been setup and try again."
