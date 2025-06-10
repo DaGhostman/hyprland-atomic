@@ -6,15 +6,13 @@ function atomic() {
     fi
 }
 
-if [[ ! -z $(which eza) ]]; then
-    function ls() {
+function ls() {
+    if [[ ! -z $(which eza) ]]; then
         eza --icons --group-directories-first --git $@
-    }
-
-    function tree() {
-        eza --icons --group-directories-first --tree $@
-    }
-fi
+    else
+        /bin/ls $@
+    fi
+}
 
 if [[ ! -z $(which fzf) ]]; then
     eval "$(fzf --$(basename $(file_or ${0} ${SHELL})))"
