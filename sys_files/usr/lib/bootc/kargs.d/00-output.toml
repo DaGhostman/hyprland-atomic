@@ -1,1 +1,1 @@
-kargs=["rhgb", "quiet"]
+kargs=["rhgb", "quiet", "splash"]
