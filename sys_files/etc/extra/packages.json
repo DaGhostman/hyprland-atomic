@@ -9,7 +9,8 @@
         "hyperfine",
         "luajit",
         "luarocks",
-        "starship"
+        "starship",
+        "just"
     ],
     "flatpak": [
         "com.saivert.pwvucontrol",
