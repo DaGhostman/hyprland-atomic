@@ -47,3 +47,11 @@ flatpak *pkgs:
 target variant="base" version="42":
     sudo bootc switch --apply quay.io/ddimitrov/hyprland-atomic:{{ version }}-{{ variant }}
     sudo rpm-ostree rebase ostree-remote-registry:quay:quay.io/ddimitrov/hyprland-atomic:{{version}}-{{variant}}
+
+[group('Bootstrap')]
+copy-default-configs:
+    if [[ ! -f ~/.config/hypr/hyprland.conf ]]; then
+        cp /usr/share/hypr/hyprland.conf ~/.config/hypr/hyprland.conf
+    else
+        echo "Hyprland configuration exists in home, skipping"
+    fi
