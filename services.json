@@ -10,7 +10,9 @@
             "podman.service",
             "bootstrap.service"
         ],
-        "disable": []
+        "disable": [
+            "NetworkManager-wait-online.service"
+        ]
     },
     "amd": {
         "enable": [
