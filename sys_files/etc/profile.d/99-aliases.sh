@@ -14,8 +14,3 @@ function ls() {
     fi
 }
 
-if [[ -f "/home/linuxbrew/.linuxbrew/bin/fzf" ]]; then
-    if [[ -z $fzf_default_completion ]]; then
-        eval $(/home/linuxbrew/.linuxbrew/bin/fzf --$(basename $(file_or ${0} ${SHELL})))
-    fi
-fi

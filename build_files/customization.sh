@@ -24,3 +24,9 @@ ln -sf "$(which ghostty)" /usr/local/bin/kitty
 # Create a `atomic` user that can be used for various system scripts
 #
 useradd --system atomic
+
+#
+# Customize shells
+#
+cat /ctx/shell_config.sh >> /etc/bashrc
+cat /ctx/shell_config.sh >> /etc/zshrc

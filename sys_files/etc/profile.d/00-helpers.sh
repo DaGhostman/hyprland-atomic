@@ -55,7 +55,7 @@ function var_or_run() {
     _CALLBACK=${@:2}
 
 
-    if [[ ! -v "$_CONDITION" ]] || [[ -z "$(value_or ${!_CONDITION})" ]] ; then
+    if [[ ! -v "$_CONDITION" ]]; then
         eval "${_CALLBACK}" 2>/dev/null
     fi
 
