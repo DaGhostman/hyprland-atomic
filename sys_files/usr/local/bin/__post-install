@@ -33,8 +33,10 @@ install_brew() {
 
     # Install Packages
     if [[ "${#INCLUDED_PACKAGES[@]}" -gt 0 ]]; then
-        sudo -u atomic HOME=${HOME:="/home/$(ls /home | grep -iv linuxbrew | head -n1)"} /home/linuxbrew/.linuxbrew/bin/brew install \
+        _USERNAME=$(getent passwd | grep 1000 | awk -F: '{print $1}')
+        sudo -u $_USERNAME HOME=${HOME:="/home/$(ls /home | grep -i $_USERNAME | head -n1)"} /home/linuxbrew/.linuxbrew/bin/brew install \
             "${INCLUDED_PACKAGES[@]}"
+	unset _USERNAME
     fi
 }
 
