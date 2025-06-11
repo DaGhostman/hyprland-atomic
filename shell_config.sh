@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+
+PATH=${HOME}/.local/bin:$PATH
+
+
 BREW_PREFIX=${BREW_PREFIX:=/home/linuxbrew/.linuxbrew}
 
 if [[ -f ${BREW_PREFIX}/bin/brew ]]; then
