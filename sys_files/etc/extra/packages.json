@@ -2,6 +2,7 @@
     "brew": [
         "gdb",
         "eza",
+        "fzf",
         "node",
         "valgrind",
         "yazi",
