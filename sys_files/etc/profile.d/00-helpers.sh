@@ -36,7 +36,7 @@ function value_or_run() {
     _CALLBACK=${@:2}
 
     if [[ -z "$(value_or $_CONDITION)" ]]; then
-        eval "${_CALLBACK}"
+        eval "${_CALLBACK}" 2>/dev/null
     else
         echo $_CONDITION
     fi
@@ -56,7 +56,7 @@ function var_or_run() {
 
 
     if [[ ! -v "$_CONDITION" ]] || [[ -z "$(value_or ${!_CONDITION})" ]] ; then
-        eval "${_CALLBACK}" # 2>/dev/null
+        eval "${_CALLBACK}" 2>/dev/null
     fi
 
     unset _CONDITION _CALLBACK
