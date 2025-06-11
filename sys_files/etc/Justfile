@@ -50,6 +50,7 @@ target variant="base" version="42":
 
 [group('Bootstrap')]
 copy-default-configs:
+    #!/usr/bin/bash
     if [[ ! -f ~/.config/hypr/hyprland.conf ]]; then
         cp /usr/share/hypr/hyprland.conf ~/.config/hypr/hyprland.conf
     else
