@@ -33,7 +33,7 @@ install_brew() {
 
     # Install Packages
     if [[ "${#INCLUDED_PACKAGES[@]}" -gt 0 ]]; then
-        /home/linuxbrew/.linuxbrew/bin/brew install \
+        HOME=${HOME:="/home/$(ls /home | grep -iv linuxbrew | head -n1)"} /home/linuxbrew/.linuxbrew/bin/brew install \
             "${INCLUDED_PACKAGES[@]}"
     fi
 }
