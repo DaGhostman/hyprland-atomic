@@ -1,5 +1,6 @@
 [Unit]
 Description=Rotate the current `swww` wallpaper with spotligth wallpapers
+Wants=graphical.target
 
 [Timer]
 OnBootSec=20min
@@ -8,4 +9,3 @@ Unit=rotate-wallpaper.service
 
 [Install]
 WantedBy=timers.target
-Wants=graphical.target
