@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 WALLPAPER_FOLDER="${HOME}/.cache/spotlight-wallpapers/images/"
 mkdir -p $WALLPAPER_FOLDER
 

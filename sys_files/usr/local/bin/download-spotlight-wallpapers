@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 BASE_URL="https://www.bing.com/"
 IMAGE_COUNT=10
 WALLPAPER_FOLDER="${HOME}/.cache/spotlight-wallpapers/images/"
