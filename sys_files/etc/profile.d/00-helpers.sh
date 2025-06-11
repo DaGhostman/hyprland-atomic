@@ -16,6 +16,7 @@ function value_or() {
     _DEFAULT="$2"
     _ACTUAL="$1"
 
+
     if [[ ! -z "${_ACTUAL}" ]]; then
         echo $_ACTUAL;
     else
@@ -44,7 +45,8 @@ function value_or_run() {
 }
 
 function var_or_run() {
-    if [[ ! $# -gt 2 ]]; then
+
+    if [[ $# -lt 2 ]]; then
         eprint "Expected a value and a callback to execute if it is empty"
 	return;
     fi
@@ -52,14 +54,12 @@ function var_or_run() {
     _CONDITION=$1
     _CALLBACK=${@:2}
 
-    if [[ -z "$(value_or ${!_CONDITION})" ]]; then
-        eval "${_CALLBACK}"
+
+    if [[ ! -v "$_CONDITION" ]] || [[ -z "$(value_or ${!_CONDITION})" ]] ; then
+        eval "${_CALLBACK}" # 2>/dev/null
     fi
 
-
     unset _CONDITION _CALLBACK
-
-    echo "${!1}"
 }
 
 function file_or() {
@@ -75,7 +75,7 @@ function cmd_or() {
     _CMD="$1"
     _DEFAULT="$2"
 
-    value_or "$(which \"${_CMD}\" 2>/dev/null)" "${_DEFAULT}"
+
+    value_or "$(which ${_CMD} 2>/dev/null)" "${_DEFAULT}"
     unset _CMD _DEFAULT
 }
-
