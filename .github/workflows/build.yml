@@ -134,7 +134,7 @@ jobs:
           version: ${{ matrix.fedora }}-${{ matrix.variant }}_<date>
           labels: ${{ steps.metadata.outputs.labels }} # Rechunk strips out all the labels during build, this needs to be reapplied here with newline separator
 
-      This is necessary so that the podman socket can find the rechunked image on its storage
+      # This is necessary so that the podman socket can find the rechunked image on its storage
       - name: Load in podman and tag
         run: |
           IMAGE=$(podman pull ${{ steps.rechunk.outputs.ref }})
