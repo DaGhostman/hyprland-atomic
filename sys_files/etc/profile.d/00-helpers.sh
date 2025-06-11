@@ -34,7 +34,7 @@ function value_or_run() {
     _CONDITION=$1
     _CALLBACK=${@:2}
 
-    if [[ -z $(value_or $_CONDITION) ]]; then
+    if [[ -z "$(value_or $_CONDITION)" ]]; then
         eval "${_CALLBACK}"
     else
         echo $_CONDITION
@@ -52,7 +52,7 @@ function var_or_run() {
     _CONDITION=$1
     _CALLBACK=${@:2}
 
-    if [[ -z $(value_or ${!_CONDITION}) ]]; then
+    if [[ -z "$(value_or ${!_CONDITION})" ]]; then
         eval "${_CALLBACK}"
     fi
 
