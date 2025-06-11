@@ -6,6 +6,9 @@ After=network.target network-online.target
 [Service]
 WorkingDirectory=/tmp
 ExecStart=/usr/local/bin/__post-install
+Restart=on-failure
+RestartSec=20sec
+RestartBurst=5
 
 [Install]
 RequiredBy=graphical.target
