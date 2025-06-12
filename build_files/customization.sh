@@ -3,6 +3,7 @@ set -ouex pipefail
 
 # Download & apply cursor from https://gitlab.com/Pummelfisch/future-cyan-hyprcursor
 curl https://gitlab.com/Pummelfisch/future-cyan-hyprcursor/-/archive/main/future-cyan-hyprcursor-main.tar.gz?path=Future-Cyan-Hyprcursor_Theme \
+    -L \
     --output future-cursor.tar.gz
 
 
