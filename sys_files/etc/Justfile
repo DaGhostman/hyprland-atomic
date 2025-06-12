@@ -57,12 +57,14 @@ copy-default-configs:
         echo "Hyprland configuration exists in home, skipping"
     fi
     if [[ ! -f ~/.config/ghostty/config ]]; then
+        mkdir ~/.config/ghostty
         cp /usr/share/ghostty/config ~/.config/ghostty/config
     else
         echo "Ghostty configuration exists in home, skipping"
     fi
     if [[ ! -f ~/.config/rofi/config.rasi ]]; then
-        echo "@theme \"/usr/share/rofi/themes/hyprland-atomic.rasi\"" > ~/.config/fori/config.rasi
+        mkdir ~/.config/rofi
+        echo "@theme \"/usr/share/rofi/themes/hyprland-atomic.rasi\"" > ~/.config/rofi/config.rasi
     else
         echo "Rofi configuration exists in home, skipping"
     fi
