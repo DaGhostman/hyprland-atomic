@@ -66,3 +66,8 @@ copy-default-configs:
 [group('Bootstrap')]
 use-cloudflare-dns:
     resolvectl dns {{ position }} 1.1.1.1 1.0.0.1
+
+# Installs EasyEffects preset from https://github.com/JackHack96/EasyEffects-Presets
+[group('Bootstrap')]
+install-easyeffects-presets:
+    bash -c "$(curl -fsSL https://raw.githubusercontent.com/JackHack96/PulseEffects-Presets/master/install.sh)"
