@@ -40,13 +40,5 @@ install_brew() {
     fi
 }
 
-# Common configurations for the system
-#
-configure_system() {
-    # Configure CloudFlare DNS
-    resolvectl dns 3 1.1.1.1 1.0.0.1
-}
-
-configure_system
 install_flatpaks
 install_brew

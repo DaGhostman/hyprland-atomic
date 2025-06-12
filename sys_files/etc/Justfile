@@ -56,3 +56,7 @@ copy-default-configs:
     else
         echo "Hyprland configuration exists in home, skipping"
     fi
+# Switch from the ISP-provided DNS servers to those provided by Cloudflare
+[group('Bootstrap')]
+use-cloudflare-dns:
+    resolvectl dns {{ position }} 1.1.1.1 1.0.0.1
