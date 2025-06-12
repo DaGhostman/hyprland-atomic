@@ -69,7 +69,7 @@ copy-default-configs:
 
 # Switch from the ISP-provided DNS servers to those provided by Cloudflare
 [group('Bootstrap')]
-use-cloudflare-dns:
+use-cloudflare-dns position:
     resolvectl dns {{ position }} 1.1.1.1 1.0.0.1
 
 # Installs EasyEffects preset from https://github.com/JackHack96/EasyEffects-Presets
