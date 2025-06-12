@@ -56,6 +56,12 @@ copy-default-configs:
     else
         echo "Hyprland configuration exists in home, skipping"
     fi
+    if [[ ! -f ~/.config/ghostty/config ]]; then
+        cp /usr/share/ghostty/config ~/.config/ghostty/config
+    else
+        echo "Ghostty configuration exists in home, skipping"
+    fi
+
 # Switch from the ISP-provided DNS servers to those provided by Cloudflare
 [group('Bootstrap')]
 use-cloudflare-dns:
