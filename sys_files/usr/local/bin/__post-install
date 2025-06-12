@@ -45,10 +45,6 @@ install_brew() {
 configure_system() {
     # Configure CloudFlare DNS
     resolvectl dns 3 1.1.1.1 1.0.0.1
-    if [[ -z $(cat /etc/resolv.conf | grep -i DNSOverTls) ]]; then
-        echo 'DNSOverTls=yes' >> /etc/resolv.conf
-        echo 'Cache=yes' >> /etc/resolv.conf
-    fi
 }
 
 configure_system
