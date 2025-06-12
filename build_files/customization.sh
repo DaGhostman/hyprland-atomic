@@ -12,6 +12,18 @@ tar -xzvf future-cursor.tar.gz --strip-components=2 -C /usr/share/icons/Future-C
 rm future-cursor.tar.gz
 
 #
+# Download Monaspace fonts v1.200 (https://monaspace.githubnext.com/)
+curl https://github.com/githubnext/monaspace/releases/download/v1.200/monaspace-v1.200.zip \
+    -L \
+    --output monaspace.zip
+
+mkdir -p /usr/share/fonts/Monaspace
+unzip -jo monaspace.zip "monaspace-v1.200/fonts/*" -d /usr/share/fonts/Monaspace
+fc-cache -f
+rm monaspace.zip
+
+
+#
 # Expose cursor to flatpak packages
 #
 flatpak override --filesystem=/usr/share/icons/:ro
