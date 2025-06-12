@@ -12,6 +12,7 @@ atomic *args:
 [group('Bootstrap')]
 bootstrap:
     @just install-taps
+    @just copy-default-configs
 
 # Install brew
 [group('Brew')]
