@@ -43,3 +43,6 @@ useradd --system atomic
 #
 cat /ctx/shell_config.sh >> /etc/bashrc
 cat /ctx/shell_config.sh >> /etc/zshrc
+
+echo "source /etc/extra/00-history-zsh.sh" >> /etc/zshrc
+echo "source /etc/extra/00-key-bindings-zsh.sh" >> /etc/zshrc
