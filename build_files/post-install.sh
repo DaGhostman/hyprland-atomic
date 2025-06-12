@@ -32,9 +32,18 @@ systemctl set-default graphical.target
 # Remove tmp files and everything in dirs that make bootc unhappy
 dnf5 clean all
 
+rm -rf /tmp/* || true
 rm -rf /usr/etc
 rm -rf /sys_files
 rm -rf /boot && mkdir /boot
+
+shopt -s extglob
+rm -rf /var/!(cache)
+rm -rf /var/cache/!(libdnf5)
+
+# Make sure /var/tmp is properly created
+mkdir -p /var/tmp
+chmod -R 1777 /var/tmp
 
 restorecon /
 
