@@ -1,0 +1,27 @@
+font-family = Monaspace Neon
+font-feature=liga
+font-feature=ss01
+font-feature=ss02
+font-feature=ss03
+font-feature=ss04
+font-feature=ss05
+font-feature=ss06
+font-feature=ss07
+font-feature=ss08
+font-feature=ss09
+font-feature=ss10
+font-feature=calt
+
+font-size = 12
+
+background-opacity = 0.9
+background-blur-radius = 40
+window-decoration = false
+
+
+theme = GruvboxDark
+
+shell-integraion-features = no-cursor
+cursor-style = block
+cursor-style-blink = false
+mouse-hide-while-typing = true
