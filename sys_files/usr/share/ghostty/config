@@ -21,7 +21,7 @@ window-decoration = false
 
 theme = GruvboxDark
 
-shell-integraion-features = no-cursor
+shell-integration-features = no-cursor
 cursor-style = block
 cursor-style-blink = false
 mouse-hide-while-typing = true
