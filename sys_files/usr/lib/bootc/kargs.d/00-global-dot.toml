@@ -1,0 +1,1 @@
+kargs = ["rd.net.dns=dns+tls://1.1.1.1#one.one.one.one", "rd.net.dns-resolve-mode=exclusive", "rd.net.dns-backend=dnsconfd"]

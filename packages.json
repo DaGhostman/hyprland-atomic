@@ -13,6 +13,8 @@
                 "cliphist",
                 "distrobox",
                 "dnf-bootc",
+		"dnsconfd",
+		"dnsconfd-dracut",
                 "dunst",
                 "easyeffects",
                 "fastfetch",

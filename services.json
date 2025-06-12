@@ -8,7 +8,8 @@
             "tuned-ppd.service",
             "fwupd-refresh.timer",
             "podman.service",
-            "bootstrap.service"
+            "bootstrap.service",
+	    "dnsconfd.service"
         ],
         "disable": [
             "NetworkManager-wait-online.service",
