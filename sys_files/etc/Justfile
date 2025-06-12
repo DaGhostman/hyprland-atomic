@@ -61,6 +61,11 @@ copy-default-configs:
     else
         echo "Ghostty configuration exists in home, skipping"
     fi
+    if [[ ! -f ~/.config/rofi/config.rasi ]]; then
+        echo "@theme \"/usr/share/rofi/themes/hyprland-atomic.rasi\"" > ~/.config/fori/config.rasi
+    else
+        echo "Rofi configuration exists in home, skipping"
+    fi
 
 # Switch from the ISP-provided DNS servers to those provided by Cloudflare
 [group('Bootstrap')]
