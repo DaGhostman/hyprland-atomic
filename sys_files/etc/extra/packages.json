@@ -24,6 +24,7 @@
         "com.github.tchx84.Flatseal",
         "org.mozilla.firefox",
         "xyz.tytanium.DoorKnocker",
-        "org.gnome.font-viewer"
+        "org.gnome.font-viewer",
+        "org.gnome.TextEditor"
     ]
 }
