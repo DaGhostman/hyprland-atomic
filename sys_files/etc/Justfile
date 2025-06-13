@@ -13,6 +13,7 @@ atomic *args:
 bootstrap:
     @just install-taps
     @just copy-default-configs
+    @just enable-spotlight-wallpapers
 
 # Install brew
 [group('Brew')]
@@ -89,3 +90,11 @@ use-cloudflare-dns position:
 [group('Bootstrap')]
 install-easyeffects-presets:
     bash -c "$(curl -fsSL https://raw.githubusercontent.com/JackHack96/PulseEffects-Presets/master/install.sh)"
+
+# Enable Spotlight wallpaper rotation scripts that download the images, convert them and then apply them randomly at intervals
+[group('Bootstrap')]
+enable-spotlight-wallpapers:
+    systemctl enable --now --user download-wallpapers.timer
+    systemctl enable --now --user rotate-wallpaper.timer
+    /usr/local/bin/download-spotlight-wallpapers
+    /usr/local/bin/rotate-spotlight-wallpaper
