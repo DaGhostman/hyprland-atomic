@@ -14,3 +14,10 @@ function ls() {
     fi
 }
 
+function grep() {
+    if [[ -f "/usr/bin/rg" ]]; then
+        /usr/bin/rg $@
+    else
+        /usr/bin/grep --color=auto $@
+    fi
+}
