@@ -8,7 +8,7 @@
  **/
 
 * {
-    font: "Monaspace Neon";
+    font: "Monaspace Neon 12";
 }
 
 * {
