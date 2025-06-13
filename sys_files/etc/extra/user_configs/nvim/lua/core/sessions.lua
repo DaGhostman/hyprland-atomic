@@ -1,6 +1,13 @@
+nmap = function(keys, fn, desc)
+    vim.keymap.set("n", keys, fn, { desc = desc, silent = true, noremap = true })
+end
+
 return {
     {
         "Shatur/neovim-session-manager",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+        }
         config = function()
             local session = require("session_manager")
             local config = require("session_manager.config");

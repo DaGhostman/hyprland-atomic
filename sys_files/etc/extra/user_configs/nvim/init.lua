@@ -1,3 +1,16 @@
+nmap = function(keys, fn, desc)
+    vim.keymap.set("n", keys, fn, { desc = desc, silent = true, noremap = true })
+end
+tmap = function(keys, fn, desc)
+    vim.keymap.set("t", keys, fn, { desc = desc, silent = true, noremap = true })
+end
+imap = function(keys, fn, desc)
+    vim.keymap.set("i", keys, fn, { desc = desc, silent = true, noremap = true })
+end
+vmap = function(keys, fn, desc)
+    vim.keymap.set("v", keys, fn, { desc = desc, silent = true, noremap = true })
+end
+
 require("config.lazy")
 
 vim.defer_fn(function()
