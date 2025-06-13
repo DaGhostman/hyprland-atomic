@@ -9,6 +9,8 @@ MARKET=
 
 mkdir -p $WALLPAPER_FOLDER
 
+rm "$WALLPAPER_FOLDER/*.jpg"
+
 REQUEST_PARAMS="?format=js&idx=0&n=${IMAGE_COUNT}&mbl=1&mkt=${MARKET}"
 
     RESPONSE=$(curl -X GET "${BASE_URL}/HPImageArchive.aspx${REQUEST_PARAMS}" --silent)
