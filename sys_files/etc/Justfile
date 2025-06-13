@@ -76,10 +76,17 @@ copy-default-configs:
     else
         echo "Rofi configuration exists in home, skipping"
     fi
+    if [[ ! -f ~/.config/nvim/init.lua ]]; then
+        mkdir -p ~/.config/nvim
+        cp /etc/extra/user_configs/nvim ~/.config/
+    else
+        echo "Nvim configuration exists in home, skipping"
+    fi
 
 # Switch from the ISP-provided DNS servers to those provided by Cloudflare
 [group('Bootstrap')]
 use-cloudflare-dns position:
+    resolvectl
     resolvectl dns {{ position }} 1.1.1.1 1.0.0.1
 
 # Installs EasyEffects preset from https://github.com/JackHack96/EasyEffects-Presets
