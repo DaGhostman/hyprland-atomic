@@ -11,7 +11,6 @@
             "bootstrap.service"
         ],
         "disable": [
-            "NetworkManager-wait-online.service",
             "bootc-fetch-apply-updates.timer"
         ]
     },
