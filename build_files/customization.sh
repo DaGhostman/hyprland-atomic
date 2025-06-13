@@ -41,8 +41,12 @@ useradd --system atomic
 #
 # Customize shells
 #
+
+# QoL tweaks for zsh
+echo "source /etc/extra/00-history-zsh.sh" >> /etc/zshrc
+echo "source /etc/extra/00-key-bindings-zsh.sh" >> /etc/zshrc
+
+# Handle minimal customizations
 cat /ctx/shell_config.sh >> /etc/bashrc
 cat /ctx/shell_config.sh >> /etc/zshrc
 
-echo "source /etc/extra/00-history-zsh.sh" >> /etc/zshrc
-echo "source /etc/extra/00-key-bindings-zsh.sh" >> /etc/zshrc
