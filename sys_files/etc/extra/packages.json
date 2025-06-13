@@ -23,6 +23,7 @@
         "io.missioncenter.MissionCenter",
         "com.github.tchx84.Flatseal",
         "org.mozilla.firefox",
-        "xyz.tytanium.DoorKnocker"
+        "xyz.tytanium.DoorKnocker",
+        "org.gnome.font-viewer"
     ]
 }
