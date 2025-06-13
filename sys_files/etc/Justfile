@@ -54,28 +54,18 @@ target variant="base" version="42":
 copy-default-configs:
     #!/usr/bin/bash
     if [[ ! -f ~/.config/hypr/hyprland.conf ]]; then
-        cp /usr/share/hypr/hyprland.conf ~/.config/hypr/hyprland.conf
+        cp /etc/extra/user_configs/hypr ~/.config/
     else
-        echo "Hyprland configuration exists in home, skipping"
-    fi
-    if [[ ! -f ~/.config/hypr/hypridle.conf ]]; then
-        cp /usr/share/hypr/hypridle.conf ~/.config/hypr/hypridle.conf
-    else
-        echo "Hyptidle configuration exists in home, skipping"
-    fi
-    if [[ ! -f ~/.config/hypr/hyprlock.conf ]]; then
-        cp /usr/share/hypr/hyprlock.conf ~/.config/hypr/hyprlock.conf
-    else
-        echo "Hyprlock configuration exists in home, skipping"
+        echo "Hyprland configurations exists in home, skipping"
     fi
     if [[ ! -f ~/.config/ghostty/config ]]; then
-        mkdir ~/.config/ghostty
-        cp /usr/share/ghostty/config ~/.config/ghostty/config
+        mkdir -p ~/.config/ghostty
+        cp /etc/extra/user_configs/ghostty/config ~/.config/ghostty/config
     else
         echo "Ghostty configuration exists in home, skipping"
     fi
     if [[ ! -f ~/.config/rofi/config.rasi ]]; then
-        mkdir ~/.config/rofi
+        mkdir -p ~/.config/rofi
         echo "@theme \"/usr/share/rofi/themes/hyprland-atomic.rasi\"" > ~/.config/rofi/config.rasi
     else
         echo "Rofi configuration exists in home, skipping"
