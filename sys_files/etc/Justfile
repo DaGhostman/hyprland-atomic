@@ -64,6 +64,12 @@ copy-default-configs:
     else
         echo "Ghostty configuration exists in home, skipping"
     fi
+    if [[ ! -f ~/.config/ripgrep/rg.conf ]]; then
+        mkdir -p ~/.config/ripgrep
+        cp /etc/extra/user_configs/ripgrep/rg.conf ~/.config/ripgrep/rg.conf
+    else
+        echo "Ghostty configuration exists in home, skipping"
+    fi
     if [[ ! -f ~/.config/rofi/config.rasi ]]; then
         mkdir -p ~/.config/rofi
         echo "@theme \"/usr/share/rofi/themes/hyprland-atomic.rasi\"" > ~/.config/rofi/config.rasi
