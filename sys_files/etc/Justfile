@@ -78,7 +78,7 @@ copy-default-configs:
     fi
     if [[ ! -f ~/.config/nvim/init.lua ]]; then
         mkdir -p ~/.config/nvim
-        cp /etc/extra/user_configs/nvim ~/.config/
+        cp -r /etc/extra/user_configs/nvim ~/.config/
     else
         echo "Nvim configuration exists in home, skipping"
     fi
