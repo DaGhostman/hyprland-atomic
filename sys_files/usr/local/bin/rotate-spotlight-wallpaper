@@ -3,7 +3,7 @@
 WALLPAPER_FOLDER="${HOME}/.cache/spotlight-wallpapers/images/"
 mkdir -p $WALLPAPER_FOLDER
 
-CURRENT="$(find $WALLPAPER_FOLDER -type f | shuf -n10 | shuf -n1)";
+CURRENT="$(find $WALLPAPER_FOLDER -type f -name '*.png' | shuf -n10 | shuf -n1)";
 
 if [[ ! -z "$(which swww)" ]]; then 
     swww img ${CURRENT}

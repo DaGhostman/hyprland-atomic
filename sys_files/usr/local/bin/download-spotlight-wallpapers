@@ -21,7 +21,7 @@ REQUEST_PARAMS="?format=js&idx=0&n=${IMAGE_COUNT}&mbl=1&mkt=${MARKET}"
         echo -en "Downloading '${FILENAME}'\t"
 
         if [ ! -f "${FILENAME}" ]; then
-            curl -X GET ${BASE_URL}/${IMAGE}_UHD.jpg --output - --silent > $FILENAME
+            curl -X GET ${BASE_URL}/${IMAGE}_UHD.jpg --output $FILENAME --silent 
             mogrify -format png "${FILENAME}" -quality 100 -quiet
             rm "${FILENAME}"
             echo "DONE";
