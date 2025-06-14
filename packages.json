@@ -2,6 +2,8 @@
     "all": {
         "include": {
             "all": [
+                "1password",
+                "1password-cli",
                 "alsa-firmware",
                 "bluez",
                 "blueman-nautilus",
