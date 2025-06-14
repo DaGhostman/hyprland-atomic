@@ -15,12 +15,12 @@ require("config.lazy")
 
 vim.defer_fn(function()
     require('nvim-treesitter.configs').setup {
-        ensure_installed = { 'rust', 'zig', "toml", "lua", "php", "typescript", "javascript", "markdown_inline" },
+        ensure_installed = { "toml", "yaml", "json", "lua", "markdown_inline", "markdown", "conf", "ini" },
         auto_install = true,
-        sync_install = true,
+        sync_install = false,
         ignore_install = {},
         modules = {},
-        highlight = { enable = false },
+        highlight = { enable = true },
         indent = { enable = true },
         fold = { enable = true },
         git = {
