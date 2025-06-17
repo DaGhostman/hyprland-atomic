@@ -27,12 +27,12 @@ install-taps:
     /home/linuxbrew/.linuxbrew/bin/brew install gdb eza valgrind yazi zellij hyperfine luajit luarocks starship 
 
 # Install brew packages `atomic brew ..`
-[group('Brew')]
+[group('Packages')]
 brew *pkgs:
     /home/linuxbrew/.linuxbrew/bin/brew install {{ pkgs }}
 
 # Install flatpak packages
-[group('Flatpak')]
+[group('Packages')]
 flatpak *pkgs:
     #!/usr/bin/bash
     function flatpakif() {
@@ -85,9 +85,9 @@ copy-default-configs:
 
 # Switch from the ISP-provided DNS servers to those provided by Cloudflare
 [group('Bootstrap')]
-use-cloudflare-dns position:
+use-cloudflare-dns:
     resolvectl
-    resolvectl dns {{ position }} 1.1.1.1 1.0.0.1
+    @read -p "Add to interface position: " _pos && resolvectl dns $_pos 1.1.1.1 1.0.0.1
 
 # Installs EasyEffects preset from https://github.com/JackHack96/EasyEffects-Presets
 [group('Bootstrap')]
@@ -102,17 +102,21 @@ enable-spotlight-wallpapers:
     /usr/local/bin/download-spotlight-wallpapers
     /usr/local/bin/rotate-spotlight-wallpaper
 
+# Update packages & system
 [group('Maintenance')]
 update:
     flatpak update -y --user
     flatpak update -y --system
+    brew update
     rpm-ostree update
 
+# Check background download of updates is enabled
 [group('Maintenance')]
 auto-update-status:
     #!/usr/bin/bash
-    echo "Automatic updated are $(systemctl is-enabled rpm-ostreed-automatic.timer)"
+    echo "Automatic updates are $(systemctl is-enabled rpm-ostreed-automatic.timer)"
 
+# Toggle background download of updates on/off
 [group('Maintenance')]
 toggle-updates:
     #!/usr/bin/bash
