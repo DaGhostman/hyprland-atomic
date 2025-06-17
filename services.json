@@ -11,7 +11,8 @@
             "bootstrap.service"
         ],
         "disable": [
-            "bootc-fetch-apply-updates.timer"
+            "bootc-fetch-apply-updates.timer",
+            "rpm-ostreed-automatic.timer"
         ]
     },
     "amd": {
