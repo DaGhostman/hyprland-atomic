@@ -1,9 +1,9 @@
 {
     "42": {
         "include": {
-            "all": {
+            "all": [
                 "VK_hdr_layer"
-            }
+            ]
         }
     },
     "all": {
