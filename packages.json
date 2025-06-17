@@ -4,6 +4,7 @@
             "all": [
                 "1password",
                 "1password-cli",
+                "alsa-utils",
                 "alsa-firmware",
                 "bluez",
                 "blueman-nautilus",
@@ -22,6 +23,7 @@
                 "ffmpeg",
                 "ffmpeg-libs",
                 "ffmpegthumbnailer",
+                "firewalld",
                 "flatpak",
                 "flatpak-spawn",
                 "fuse",

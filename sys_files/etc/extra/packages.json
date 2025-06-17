@@ -25,6 +25,7 @@
         "org.mozilla.firefox",
         "xyz.tytanium.DoorKnocker",
         "org.gnome.font-viewer",
-        "org.gnome.TextEditor"
+        "org.gnome.TextEditor",
+        "io.github.justinrdonnelly.bouncer"
     ]
 }
