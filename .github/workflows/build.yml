@@ -143,7 +143,7 @@ jobs:
         uses: hhd-dev/rechunk@v1.2.2 # v1.1.1
         with:
           rechunk: 'ghcr.io/hhd-dev/rechunk:v1.0.1'
-          ref: "${{ env.IMAGE_NAME }}:${{ matrix.fedora }}-${{ matrix.variant }}"
+          ref: "${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ matrix.fedora }}-${{ matrix.variant }}"
           # ref: "${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ matrix.fedora }}-${{ matrix.variant }}"
           prev-ref: "${{ steps.generate-prev-ref.outputs.ref }}"
           # prev-ref: "${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ matrix.fedora }}-${{ matrix.variant }}"
