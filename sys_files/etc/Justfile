@@ -101,3 +101,25 @@ enable-spotlight-wallpapers:
     systemctl enable --now --user rotate-wallpaper.timer
     /usr/local/bin/download-spotlight-wallpapers
     /usr/local/bin/rotate-spotlight-wallpaper
+
+[group('Maintenance')]
+update:
+    flatpak update -y --user
+    flatpak update -y --system
+    rpm-ostree update
+
+[group('Maintenance')]
+auto-update-status:
+    #!/usr/bin/bash
+    echo "Automatic updated are $(systemctl is-enabled rpm-ostreed-automatic.timer)"
+
+[group('Maintenance')]
+toggle-updates:
+    #!/usr/bin/bash
+    if [[ $(systemctl is-enabled rpm-ostreed-automatic.timer) == enabled ]]; then
+        echo "Disabling automatic updates"
+        systemctl disable --now rpm-ostreed-automatic.timer
+    else
+        echo "Enabling automatic updates"
+        systemctl enable --now rpm-ostreed-automatic.timer
+    fi
