@@ -184,7 +184,7 @@ jobs:
           ref: "${{ steps.generate-prev-ref.outputs.ref }}"
           # ref: "${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ matrix.fedora }}-${{ matrix.variant }}"
           # prev-ref: "${{ steps.generate-prev-ref.outputs.ref }}"
-          prev-ref: "${{ env.QUAY_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ matrix.fedora }}-${{ matrix.variant }}"
+          prev-ref: "${{ env.QUAY_REPOSITORY }}/${{ env.IMAGE_NAME }}:${{ matrix.fedora }}-${{ matrix.variant }}"
           skip_compression: true
           version: ${{ matrix.fedora }}-${{ matrix.variant }}_<date>
           labels: ${{ steps.metadata.outputs.labels }} # Rechunk strips out all the labels during build, this needs to be reapplied here with newline separator
