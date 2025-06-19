@@ -1,5 +1,5 @@
 function atomic() {
-    if [[ -f "$(cmd_or /home/linuxbrew/.linuxbrew/bin/just)" ]]; then
+    if [[ -f "/home/linuxbrew/.linuxbrew/bin/just" ]]; then
         /home/linuxbrew/.linuxbrew/bin/just -f /etc/Justfile $@
     else
 	echo "It appears your system hasn't been setup with the internal/extra tooling, consider running \`/usr/local/bin/__post_install\` to ensure the defaults have been setup and try again."
