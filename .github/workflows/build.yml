@@ -214,7 +214,7 @@ jobs:
           IMAGE_FINAL="${{ vars.QUAY_REPOSITORY }}/${{ steps.image_case.outputs.lowercase }}"
           for tag in ${{ steps.metadata.outputs.tags }}; do
             cosign sign -y --key env://COSIGN_PRIVATE_KEY $IMAGE_FULL:$tag
-            cosign sign -y --key env://COSIGN_PRIVATE_KEY $IMAGE_FINAL:$tag
+            cosign sign -y --key env://COSIGN_PRIVATE_KEY $IMAGE_FINAL:$tag --registry-username=${{ vars.QUAY_USER }} --registry-password=${{ secrets.REGISTRY_PASSWORD }}
           done
         env:
           TAGS: ${{ steps.push.outputs.digest }}
