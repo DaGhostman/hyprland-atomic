@@ -6,7 +6,7 @@ readarray -t ENABLED_SERVICES < <(jq -r "[(.all.enable, select(.\"$IMAGE_NAME\" 
                              | sort | unique[]" /ctx/services.json)
 
 if [[ "${#ENABLED_SERVICES[@]}" -gt 0 ]]; then
-    systemctl enable --now ${ENABLED_SERVICES[@]}
+    systemctl enable ${ENABLED_SERVICES[@]}
 fi
 
 
@@ -15,7 +15,7 @@ readarray -t DISABLED_SERVICES < <(jq -r "[(.all.disable, select(.\"$IMAGE_NAME\
                              | sort | unique[]" /ctx/services.json)
 
 if [[ "${#DISABLED_SERVICES[@]}" -gt 0 ]]; then
-    systemctl disable --now ${DISABLED_SERVICES[@]}
+    systemctl disable ${DISABLED_SERVICES[@]}
 fi
 
 
@@ -24,7 +24,7 @@ readarray -t ENABLED_SERVICES < <(jq -r "[(.user.all.enable, select(.user.\"$IMA
                              | sort | unique[]" /ctx/services.json)
 
 if [[ "${#ENABLED_SERVICES[@]}" -gt 0 ]]; then
-    systemctl enable --user --now ${ENABLED_SERVICES[@]}
+    systemctl enable --user ${ENABLED_SERVICES[@]}
 fi
 
 
@@ -33,5 +33,5 @@ readarray -t DISABLED_SERVICES < <(jq -r "[(.user.all.disable, select(.user.\"$I
                              | sort | unique[]" /ctx/services.json)
 
 if [[ "${#DISABLED_SERVICES[@]}" -gt 0 ]]; then
-    systemctl disable --user --now ${DISABLED_SERVICES[@]}
+    systemctl disable --user ${DISABLED_SERVICES[@]}
 fi
