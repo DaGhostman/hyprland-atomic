@@ -157,8 +157,8 @@ jobs:
           username: ${{ env.REGISTRY_USER }}
           password: ${{ env.REGISTRY_PASSWORD }}
 
-      - name: Generate previous reference
-        id: generate-prev-ref
+      - name: Generate reference
+        id: generate-ref
         shell: bash
         run: |
           if [ "${{ github.event.inputs.fresh-rechunk }}" == "true" ]; then
@@ -178,12 +178,12 @@ jobs:
       # You can enable it by uncommenting the following lines:
       - name: Run Rechunker
         id: rechunk
-        uses: hhd-dev/rechunk@v1.2.2 # v1.1.1
+        uses: hhd-dev/rechunk@v1.2.2 
         with:
-          rechunk: 'ghcr.io/hhd-dev/rechunk:v1.0.1'
-          ref: "${{ steps.generate-prev-ref.outputs.ref }}"
+          rechunk: 'ghcr.io/hhd-dev/rechunk:v1.2.2'
+          ref: "${{ steps.generate-ref.outputs.ref }}"
           # ref: "${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ matrix.fedora }}-${{ matrix.variant }}"
-          # prev-ref: "${{ steps.generate-prev-ref.outputs.ref }}"
+          # prev-ref: "${{ steps.generate-ref.outputs.ref }}"
           prev-ref: "${{ vars.QUAY_REPOSITORY }}/${{ env.IMAGE_NAME }}:${{ matrix.fedora }}-${{ matrix.variant }}"
           skip_compression: true
           version: ${{ matrix.fedora }}-${{ matrix.variant }}_<date>
