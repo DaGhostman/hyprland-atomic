@@ -1,4 +1,5 @@
 # Hyprland Atomic
+Available both here in GHCR and on [Quay.io](https://quay.io/repository/ddimitrov/hyprland-atomic). Note that GH has some download speed limits and the images are quite large and might not eexactly be beneficial to use, but at the same time it is the most raw build, as quay gets rechunked image for convenience during updates and doesn't seem to have a speed limit or if it does it is higher than the one of github (YMMV)
 
 # Purpose
 This repository is my take on a more or less minimal Fedora Atomic install that comes with Hyprland and some configurations for it, as well as some relatively minimal customizations(a couple of aliases, some extra packages, cursor theme, wallpaper-rotation service), that I think bring enough of the typical desktop experience that we get from other DEs but without the initial struggle to get all the configurations one might want.
