@@ -40,6 +40,8 @@
                 "gamescope",
                 "git",
                 "glibc-langpack-en",
+                "gnome-keyring",
+                "gnome-keyring-pam",
                 "greetd",
                 "grim",
                 "heif-pixbuf-loader",
