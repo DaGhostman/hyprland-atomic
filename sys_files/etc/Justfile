@@ -105,6 +105,8 @@ enable-spotlight-wallpapers:
 # Update packages & system
 [group('Maintenance')]
 update:
+    fwupdmgr refresh --force
+    fwupdmgr update
     flatpak update -y --user
     flatpak update -y --system
     brew update
