@@ -1,0 +1,47 @@
+#!/bin/bash
+
+function __brightness_ratio() {
+    RATIO=$((($(brightnessctl get) * 100) / $(brightnessctl max)))
+
+    if [[ $RATIO == 0 ]]; then
+        echo 10
+    else
+        echo $RATIO
+    fi
+
+    unset RATIO
+}
+
+DIRECTION=${1}
+MOD=${2:-5}
+
+case $DIRECTION in
+    "up") 
+        if [[ 100 < $(__brightness_ratio || echo 100) ]]; then
+            eval "hyprctl hyprsunset gamma +$MOD"
+        else
+            eval "brightnessctl -e4 -n2 set $MOD%+"
+            hyprctl hyprsunset gamma $(__brightness_ratio)
+        fi
+        ;;
+    "down") 
+        if [[ 100 < $(hyprctl hyprsunset gamma || echo 100) ]]; then
+            eval "hyprctl hyprsunset gamma -$MOD"
+        else
+            eval "brightnessctl -e4 -n2 set $MOD%-"
+            hyprctl hyprsunset gamma $(__brightness_ratio || echo 100)
+        fi
+        ;;
+    "sync") 
+        hyprctl hyprsunset gamma $(__brightness_ratio || echo 100)
+        ;;
+    "reset") 
+        hyprctl hyprsunset gamma 100
+        ;;
+    *)
+        echo "Modify the brightness of the screen with both `brightnessctl` and `hyprsunset` gamma to handle better perceived brightness and allow for brighter than screen brightness picture (perfect for laptops)"
+        echo ""
+        echo "Commands [up|down|sync] <exponent: 5>"
+esac
+
+unset DIRECTION, MOD
