@@ -12,9 +12,10 @@
 }
 
 * {
-    background:     #181825DD;
+    // background:     #181825DD;
+    background:     #373757AA;
     background-alt: #1E1E2EDD;
-    foreground:     #FFFFFFDD;
+    foreground:     #FFFFFFFF;
     selected:       #9399B2DD;
     active:         #CDD6F4DD;
     urgent:         #E06C75DD;
@@ -50,7 +51,7 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       400px;
+    width:                       600px;
     x-offset:                    0px;
     y-offset:                    0px;
 
@@ -87,25 +88,25 @@ inputbar {
     border-radius:               0px;
     border-color:                @selected;
     background-color:            @selected;
-    text-color:                  @background;
+    text-color:                  @background-alt;
     children:                    ["prompt", "entry" ];
 }
 
 prompt {
     enabled:                     true;
-    background-color:            inherit;
+    background-color:            transparent;
     text-color:                  inherit;
 }
 textbox-prompt-colon {
     enabled:                     true;
     expand:                      false;
     str:                         "::";
-    background-color:            inherit;
+    background-color:            transparent;
     text-color:                  inherit;
 }
 entry {
     enabled:                     true;
-    background-color:            inherit;
+    background-color:            transparent;
     text-color:                  inherit;
     cursor:                      text;
     placeholder:                 "Search...";
@@ -156,7 +157,7 @@ element {
     cursor:                      pointer;
 }
 element normal.normal {
-    background-color:            @background;
+    background-color:            transparent;
     text-color:                  @foreground;
 }
 element selected.normal {
