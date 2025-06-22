@@ -82,6 +82,12 @@ copy-default-configs:
     else
         echo "Nvim configuration exists in home, skipping"
     fi
+    if [[ ! -f ~/.config/waybar/config.jsonc ]]; then
+        mkdir -p ~/.config/waybar
+        cp -r /etc/extra/user_configs/waybar ~/.config/
+    else
+        echo "Nvim configuration exists in home, skipping"
+    fi
 
 # Switch from the ISP-provided DNS servers to those provided by Cloudflare
 [group('Bootstrap')]
