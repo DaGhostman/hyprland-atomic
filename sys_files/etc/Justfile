@@ -95,6 +95,16 @@ use-cloudflare-dns:
     resolvectl
     @read -p "Add to interface position: " _pos && resolvectl dns $_pos 1.1.1.1 1.0.0.1
 
+[group('Bootstrap')]
+download-monaspace *version="v1.200":
+    curl https://github.com/githubnext/monaspace/releases/download/{{ version }}/monaspace-{{version}}.zip \
+    -L \
+    --output /tmp/monaspace.zip
+
+    mkdir -p ~/.local/share/fonts/Monaspace
+    unzip -jo /tmp/monaspace.zip "monaspace-v1.200/fonts/*" -d ~/.local/share/fonts/Monaspace
+    fc-cache -f
+
 # Installs EasyEffects preset from https://github.com/JackHack96/EasyEffects-Presets
 [group('Bootstrap')]
 install-easyeffects-presets:
