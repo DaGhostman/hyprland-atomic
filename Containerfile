@@ -10,12 +10,15 @@ COPY packages.json /
 COPY services.json /
 COPY shell_config.sh /
 
+
 # Base Image
 FROM ${BASE_IMAGE}:${FEDORA_MAJOR_VERSION}
 
 ARG IMAGE_NAME="${IMAGE_NAME}"
 ARG FEDORA_MAJOR_VERSION="${FEDORA_MAJOR_VERSION}"
 
+RUN mkdir -p /usr/lib/sigstore
+COPY cosign.pub /usr/lib/sigstore/cosign.pub
 
 ### MODIFICATIONS
 ## make modifications desired in your image and install packages by modifying the build.sh script

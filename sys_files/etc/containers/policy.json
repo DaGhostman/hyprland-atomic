@@ -1,0 +1,23 @@
+{
+    "default": [
+        {
+            "type": "reject"
+        }
+    ],
+    "transports":
+        {
+            "docker": {
+                "quay.io/ddimitrov": [{
+                    "type": "sigstoreSigned",
+                    "keyPath": "/usr/lib/sigstore/cosign.pub",
+                    "signedIdentity": {
+                        "type": "matchRepository"
+                    }
+                }]
+            },
+            "docker-daemon":
+                {
+                    "": [{"type":"insecureAcceptAnything"}]
+                }
+        }
+}

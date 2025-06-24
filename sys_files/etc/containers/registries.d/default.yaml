@@ -1,0 +1,4 @@
+docker:
+  quay.io:
+    lookaside: https://quay.io/ddimitrov/hyprland-atomic
+    use-sigstore-attachments: true
