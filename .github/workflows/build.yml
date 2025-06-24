@@ -92,7 +92,7 @@ jobs:
             org.opencontainers.image.title=${{ env.IMAGE_NAME }}
             org.opencontainers.image.url=https://github.com/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}
             org.opencontainers.image.vendor=${{ github.repository_owner }}
-            org.opencontainers.image.version=latest
+            org.opencontainers.image.version=${{ matrix.fedora }}-${{ matrix-variant }}
             io.artifacthub.package.deprecated=false
             io.artifacthub.package.keywords=bootc,ublue,universal-blue
             io.artifacthub.package.license=Apache-2.0
