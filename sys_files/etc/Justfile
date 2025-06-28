@@ -126,6 +126,7 @@ update:
     flatpak update -y --user
     flatpak update -y --system
     brew update
+    brew upgrade
     rpm-ostree update
 
 # Check background download of updates is enabled

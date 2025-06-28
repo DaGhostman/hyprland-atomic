@@ -11,13 +11,13 @@
         "luajit",
         "luarocks",
         "starship",
-        "just"
+        "just",
+        "viu"
     ],
     "flatpak": [
         "com.saivert.pwvucontrol",
         "com.valvesoftware.Steam",
         "com.stremio.Stremio",
-        "org.gnome.Boxes",
         "com.vysp3r.ProtonPlus",
         "md.obsidian.Obsidian",
         "io.missioncenter.MissionCenter",
@@ -25,7 +25,6 @@
         "org.mozilla.firefox",
         "xyz.tytanium.DoorKnocker",
         "org.gnome.font-viewer",
-        "org.gnome.TextEditor",
-        "io.github.justinrdonnelly.bouncer"
+        "org.gnome.TextEditor"
     ]
 }
