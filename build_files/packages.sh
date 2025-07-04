@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 set -ouex pipefail
 
-readarray -t PATCHES < <(jq -r "[(select(.\"$FEDORA_MAJOR_VERSION\") | select(.\"$IMAGE_NAME\")[])[]] | unique[]" /ctx/patches.json)
+readarray -t PATCHES < <(jq -r "[(select(.\"$FEDORA_MAJOR_VERSION\").\"$FEDORA_MAJOR_VERSION\" | select(.\"$IMAGE_NAME\")[])[]] | unique[]" /ctx/patches.json)
 
 if [[ "${#PATCHES[@]}" -gt 0 ]]; then
     for PATCH in $PATCHES; do
