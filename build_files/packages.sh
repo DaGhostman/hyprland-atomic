@@ -5,7 +5,7 @@ readarray -t PATCHES < <(jq -r "[(select(.\"$FEDORA_MAJOR_VERSION\").\"$FEDORA_M
 
 if [[ "${#PATCHES[@]}" -gt 0 ]]; then
     for PATCH in $PATCHES; do
-        sudo dnf upgrade --enablerepo=updates-testing --refresh --advisory=$PATCH
+        sudo dnf upgrade --enablerepo=updates-testing --refresh --advisory=$PATCH -y
     done
 else
     echo "No patches to apply"
