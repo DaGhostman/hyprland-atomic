@@ -1,6 +1,17 @@
 #!/usr/bin/bash
 set -ouex pipefail
 
+readarray -t PATCHES < <(jq -r "[(select(.\"$FEDORA_MAJOR_VERSION\") | select(.\"$IMAGE_NAME\")[])[]] | unique[]" /ctx/patches.json)
+
+if [[ "${#PATCHES[@]}" -gt 0 ]]; then
+    for PATCH in $PATCHES; do
+        sudo dnf upgrade --enablerepo=updates-testing --refresh --advisory=$PATCH
+    done
+else
+    echo "No patches to apply"
+fi
+
+
 readarray -t INCLUDED_PACKAGES < <(jq -r "[(.all.include | (.all, select(.\"$IMAGE_NAME\" != null).\"$IMAGE_NAME\")[]), \
                              (select(.\"$FEDORA_MAJOR_VERSION\" != null).\"$FEDORA_MAJOR_VERSION\".include | (.all, select(.\"$IMAGE_NAME\" != null).\"$IMAGE_NAME\")[])] \
                              | sort | unique[]" /ctx/packages.json)
@@ -47,6 +58,5 @@ else
     echo "No packages to swap."
 
 fi
-
 
 # jq -r "[(.all.swap | (.all, select(.\"$IMAGE_NAME\" != null).\"$IMAGE_NAME\")), (select(.\"$FEDORA_MAJOR_VERSION\" != null).\"$FEDORA_MAJOR_VERSION\".swap | (.all, select(.\"$IMAGE_NAME\" != null).\"$IMAGE_NAME\"))] to_entries[] | .value | to_entries[] | \"(.key) (.value)\"" /ctx/packages.json

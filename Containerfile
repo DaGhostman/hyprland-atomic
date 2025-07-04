@@ -8,6 +8,7 @@ COPY build_files /
 COPY sys_files /sys_files
 COPY packages.json /
 COPY services.json /
+COPY patches.json /
 COPY shell_config.sh /
 
 
