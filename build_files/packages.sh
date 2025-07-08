@@ -1,14 +1,16 @@
 #!/usr/bin/bash
 set -ouex pipefail
 
-readarray -t PATCHES < <(jq -r "[(select(.\"$FEDORA_MAJOR_VERSION\").\"$FEDORA_MAJOR_VERSION\" | select(.\"$IMAGE_NAME\")[])[]] | unique[]" /ctx/patches.json)
+readarray -t PATCHES < <(jq -r "[(.all | (.all, select(.\"$IMAGE_NAME\" != null).\"$IMAGE_NAME\")[]), \
+                             (select(.\"$FEDORA_MAJOR_VERSION\" != null).\"$FEDORA_MAJOR_VERSION\" | (.all, select(.\"$IMAGE_NAME\" != null).\"$IMAGE_NAME\")[])] \
+                             | sort | unique[]" /ctx/patches.json)
 
 readarray -t INCLUDED_PACKAGES < <(jq -r "[(.all.include | (.all, select(.\"$IMAGE_NAME\" != null).\"$IMAGE_NAME\")[]), \
                              (select(.\"$FEDORA_MAJOR_VERSION\" != null).\"$FEDORA_MAJOR_VERSION\".include | (.all, select(.\"$IMAGE_NAME\" != null).\"$IMAGE_NAME\")[])] \
                              | sort | unique[]" /ctx/packages.json)
 # Install Packages
 if [[ "${#INCLUDED_PACKAGES[@]}" -gt 0 ]]; then
-    dnf5 -y install \
+    dnf5 -yq install \
         "${INCLUDED_PACKAGES[@]}"
 else
     echo "No packages to install."
@@ -37,10 +39,10 @@ readarray -t SWAPPED_PACKAGES < <(jq -r "[(.all.swap | (.all, select(.\"$IMAGE_N
                              (select(.\"$FEDORA_MAJOR_VERSION\" != null).\"$FEDORA_MAJOR_VERSION\".swap | (.all, select(.\"$IMAGE_NAME\" != null).\"$IMAGE_NAME\"))] \
                              | to_entries[] | (select(.value != null).value | to_entries[] | \"\(.key) \(.value)\")" /ctx/packages.json)
 
+
 if [[ "${#PATCHES[@]}" -gt 0 ]]; then
-    for PATCH in $PATCHES; do
-        sudo dnf upgrade --enablerepo=updates-testing --refresh --advisory=$PATCH -y
-    done
+
+    sudo dnf upgrade --enablerepo=updates-testing --refresh --advisory=$(join , "${PATCHES[@]}") -y
 else
     echo "No patches to apply"
 fi
