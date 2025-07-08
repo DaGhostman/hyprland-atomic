@@ -42,7 +42,7 @@ readarray -t SWAPPED_PACKAGES < <(jq -r "[(.all.swap | (.all, select(.\"$IMAGE_N
 
 if [[ "${#PATCHES[@]}" -gt 0 ]]; then
 
-    sudo dnf upgrade --enablerepo=updates-testing --refresh --advisory=$(join , "${PATCHES[@]}") -y
+    sudo dnf upgrade --enablerepo=updates-testing --refresh --advisory="$PATCHES" -y
 else
     echo "No patches to apply"
 fi
