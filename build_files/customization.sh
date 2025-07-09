@@ -11,6 +11,18 @@ mkdir -p /usr/share/icons/Future-Cyan
 tar -xzvf future-cursor.tar.gz --strip-components=2 -C /usr/share/icons/Future-Cyan/ future-cyan-hyprcursor-main-Future-Cyan-Hyprcursor_Theme/Future-Cyan-Hyprcursor_Theme
 rm future-cursor.tar.gz
 
+
+curl https://github.com/adi1090x/plymouth-themes/releases/download/v1.0/sphere.tar.gz \
+    -L \
+    --output sphere.tar.gz
+
+tar -xzvf sphere.tar.gz -C /usr/share/plymouth/themes/
+
+plymouth-set-default-theme -l
+plymouth-set-default-theme -R sphere
+
+rm sphere.tar.gz
+
 #
 # Download Monaspace fonts v1.200 (https://monaspace.githubnext.com/)
 # curl https://github.com/githubnext/monaspace/releases/download/v1.200/monaspace-v1.200.zip \
