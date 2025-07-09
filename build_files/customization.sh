@@ -19,7 +19,7 @@ curl https://github.com/adi1090x/plymouth-themes/releases/download/v1.0/sphere.t
 tar -xzvf sphere.tar.gz -C /usr/share/plymouth/themes/
 
 plymouth-set-default-theme -l
-plymouth-set-default-theme -R sphere
+plymouth-set-default-theme sphere
 
 rm sphere.tar.gz
 
