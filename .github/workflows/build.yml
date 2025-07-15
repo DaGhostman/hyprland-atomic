@@ -178,7 +178,7 @@ jobs:
       # You can enable it by uncommenting the following lines:
       - name: Run Rechunker
         id: rechunk
-        uses: hhd-dev/rechunk@v1.2.2 
+        uses: hhd-dev/rechunk@v1.2.3 
         with:
           rechunk: 'ghcr.io/hhd-dev/rechunk:v1.2.2'
           ref: "${{ steps.generate-ref.outputs.ref }}"
