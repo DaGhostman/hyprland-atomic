@@ -2,8 +2,6 @@
     "42": {
         "include": {
             "all": [
-                "VK_hdr_layer",
-                "kernel-6.14.11-300.fc42",
                 "aquamarine-0.9.0-1.fc42"
             ]
         }
