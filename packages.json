@@ -129,6 +129,7 @@
                 "gstreamer1-vaapi",
                 "oneVPL-intel-gpu",
                 "intel-mediasdk",
+                "alsa-sof-firmware",
                 "libva-intel-driver",
                 "libva-intel-media-driver"
             ]
