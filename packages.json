@@ -22,6 +22,7 @@
                 "cups-pdf",
                 "cups-browsed",
                 "cmake",
+                "clang",
                 "cliphist",
                 "distrobox",
                 "dnf-bootc",
