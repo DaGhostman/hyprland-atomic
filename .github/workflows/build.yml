@@ -178,7 +178,7 @@ jobs:
       # You can enable it by uncommenting the following lines:
       - name: Run Rechunker
         id: rechunk
-        uses: hhd-dev/rechunk@v1.2.3 
+        uses: hhd-dev/rechunk@v1.2.4 
         with:
           ref: "${{ steps.generate-ref.outputs.ref }}"
           # ref: "${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ matrix.fedora }}-${{ matrix.variant }}"
