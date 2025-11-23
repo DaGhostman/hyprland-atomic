@@ -39,6 +39,29 @@ jobs:
       id-token: write
 
     steps:
+      - name: Maximize build disk space (Only remove unwanted software)
+        # You may pin to the exact commit or the version.
+        # uses: AdityaGarg8/remove-unwanted-software@90e01b21170618765a73370fcc3abbd1684a7793
+        uses: AdityaGarg8/remove-unwanted-software@v5
+        with:
+          # Removes .NET runtime and libraries. (frees ~2 GB)
+          remove-dotnet: true # optional, default is false
+          # Removes Android SDKs and Tools. (frees ~9 GB)
+          remove-android: true # optional, default is false
+          # Removes GHC (Haskell) artifacts. (frees ~5.2 GB)
+          remove-haskell: true # optional, default is false
+          # Removes CodeQL Action Bundles. (frees ~5.4 GB)
+          remove-codeql: true # optional, default is false
+          # Removes cached Docker images. (frees ~3.2 GB)
+          remove-docker-images: true # optional, default is false
+          # Removes unwanted large Apt packages. (frees ~3.1 GB)
+          remove-large-packages: true # optional, default is false
+          # Removes cached tools used by setup actions by GitHub. (frees ~8.3 GB)
+          remove-cached-tools: true # optional, default is false
+          # Removes the Swapfile. (frees ~4 GB)
+          remove-swapfile: true # optional, default is false
+          # Enables detailed logging of the action
+          verbose: false # optional, default is false
       - name: Locale
         run: |
           locale
