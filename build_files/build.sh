@@ -15,7 +15,8 @@ dnf5 config-manager setopt fedora-cisco-openh264.enabled=1
 
 # Enable variouls coprs for external packages
 # dnf5 -y copr enable solopasha/hyprland
-dnf5 -y copr enable  lionheartp/Hyprland # Temporary workaround for solopasha/hyprland QT issues
+dnf5 -y copr enable lionheartp/Hyprland # Temporary workaround for solopasha/hyprland QT issues
+dnf5 -y copr enable agonie/swww
 dnf5 -y copr enable scottames/ghostty
 dnf5 -y copr enable codifryed/CoolerControl
 dnf5 -y copr enable ilyaz/LACT
