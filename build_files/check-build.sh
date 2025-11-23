@@ -10,7 +10,7 @@ IMPORTANT_PACKAGES=(
     wireplumber
     hyprland
     uwsm
-    waybar-git
+    waybar
     ghostty
     btop
     neovim
