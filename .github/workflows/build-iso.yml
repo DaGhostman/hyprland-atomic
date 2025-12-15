@@ -37,7 +37,7 @@ jobs:
     strategy:
       matrix:
         variant: ["base", "nvidia", "amd", "intel", ]
-        fedora: [42, 43]
+        fedora: [43]
     runs-on: ${{ inputs.platform == 'amd64' && 'ubuntu-24.04' || 'ubuntu-24.04-arm' }}
     permissions:
       contents: read
